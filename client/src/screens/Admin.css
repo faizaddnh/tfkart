@@ -1,0 +1,21 @@
+
+.heading{
+    font-size: 3rem;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+.boder{
+    border: 1px solid #aaa;
+    padding: 2rem;
+    
+}
+.grid-2{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    
+}
+.grid-3{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}

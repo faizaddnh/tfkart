@@ -1,0 +1,26 @@
+.address-form input{
+    width: 40rem;
+    height: 3rem;
+    border: 1px solid #aaa;
+    border-radius: 5px;
+    
+}
+.address-center{
+    text-align: center;
+}
+
+.address-form select{
+    width: 40rem;
+    height: 3rem;
+    border: 1px solid #aaa;
+    border-radius: 5px;
+    
+}
+
+.address-form textarea{
+    width: 40rem;
+    height: 10rem;
+    border: 1px solid #aaa;
+    border-radius: 5px;
+    
+}
