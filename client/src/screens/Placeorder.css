@@ -43,7 +43,7 @@ section{
 @media only screen and (max-width: 500px){
     
     section {
-        padding: 2rem 4%;
+        padding: 1rem 3%;
     }
     .main-sect{
         grid-template-columns:repeat(1,1fr);
@@ -63,7 +63,7 @@ section{
 @media only screen and (max-width: 400px){
     
     section {
-        padding: 2rem 4%;
+        padding: 1rem 3%;
     }
     .main-sect{
         grid-template-columns:repeat(1,1fr);

@@ -62,7 +62,7 @@ section{
 @media only screen and (max-width: 500px){
     
     section {
-        padding: 2rem 4%;
+        padding: 1rem 3%;
     }
     .grid-cart{
         grid-template-columns:repeat(1,1fr);
@@ -75,9 +75,10 @@ section{
         margin-left: 1rem;
     }
     .grid-5{
-        grid-template-columns: 20% 27% 22% 12% 18%;
+        grid-template-columns: 22% 26% 22% 12% 18%;
         padding: 0;
         margin-bottom: 1rem;
+        font-size: 70%;
     }
     .grid-5 .button{
          width: 5rem;
@@ -89,7 +90,7 @@ section{
 @media only screen and (max-width: 400px){
     
     section {
-        padding: 2rem 4%;
+        padding: 1rem 3%;
     }
     .grid-cart{
         grid-template-columns:repeat(1,1fr);
@@ -102,9 +103,10 @@ section{
         margin-left: 1rem;
     }
     .grid-5{
-        grid-template-columns: 20% 27% 22% 12% 18%;
+        grid-template-columns: 22% 26% 22% 12% 18%;
         padding: 0;
         margin-bottom: 1rem;
+        font-size: 70%;
     }
     .grid-5 .button{
          width: 5rem;
