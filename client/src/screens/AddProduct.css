@@ -10,7 +10,7 @@
 }
 
 .address-form select{
-    width: 40rem;
+    width: 30rem;
     height: 3rem;
     border: 1px solid #aaa;
     border-radius: 5px;
@@ -18,7 +18,7 @@
 }
 
 .address-form textarea{
-    width: 40rem;
+    width: 30rem;
     height: 10rem;
     border: 1px solid #aaa;
     border-radius: 5px;
@@ -29,14 +29,14 @@
 @media only screen and (max-width: 500px){
     .address-form input,
     .address-form select{
-        width: 25rem;
+        width: 22rem;
         height: 3rem;
         border: 1px solid #aaa;
         border-radius: 5px;
         
     }
     .address-form textarea{
-        width: 25rem;
+        width: 22rem;
         height: 6rem;
     }
 }
@@ -44,14 +44,14 @@
 @media only screen and (max-width: 400px){
     .address-form input,
     .address-form select{
-        width: 25rem;
+        width: 22rem;
         height: 3rem;
         border: 1px solid #aaa;
         border-radius: 5px;
         
     }
     .address-form textarea{
-        width: 25rem;
+        width: 22rem;
         height: 6rem;
     }
 }

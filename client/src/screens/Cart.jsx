@@ -43,23 +43,25 @@ function Cart(props) {
         <div>
             <section>
                 <div className='grid-cart'>
-                    <div>
+                    <div className='cart-border'>
                         {cartItems.map((item) => (
-                            <div className='grid-5'>
+                            <div >
+                                <div className='grid-5'>
 
-                                <img className='img-cart' src={item.image} alt="" />
-                                <div>{item.name}</div>
-                                <div>
-                                    <button onClick={() =>
-                                        updateCartHandler(item, item.quantity + 1)
-                                    }>+</button>{' '}
-                                    <span>{item.quantity}</span>{' '}
-                                    <button onClick={() =>
-                                        updateCartHandler(item, item.quantity - 1)} disabled={item.quantity === 1}>-</button>{' '}
+                                    <img className='img-cart' src={item.image} alt="" />
+                                    <div>{item.name}</div>
+                                    <div>
+                                        <button onClick={() =>
+                                            updateCartHandler(item, item.quantity + 1)
+                                        }>+</button>{' '}
+                                        <span>{item.quantity}</span>{' '}
+                                        <button onClick={() =>
+                                            updateCartHandler(item, item.quantity - 1)} disabled={item.quantity === 1}>-</button>{' '}
 
+                                    </div>
+                                    <div>₹ {item.price}</div>
+                                    <button className='button' onClick={() => removeItemHandler(item)}>delete</button>
                                 </div>
-                                <div>₹ {item.price}</div>
-                                <button className='button' onClick={() => removeItemHandler(item)}>delete</button>
                             </div>
                         ))}
                     </div>

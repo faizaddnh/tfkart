@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import Rating from '../components/Rating';
 import './Product.css'
 
@@ -11,6 +11,7 @@ function Product(props) {
     const [image, setImage] = useState("");
     const [comment, setComment] = useState("");
     const [rating, setRating] = useState("");
+    const navigate = useNavigate();
 
     const reducer = (state, action) => {
         switch (action.type) {
@@ -56,6 +57,7 @@ function Product(props) {
 
         try {
             const { data } = await axios.post( `/api/product/${productId}/reviews`, { rating, comment, name, image } );
+            navigate('/');
         } catch (error) {
             console.log(error.message);
         }

@@ -14,15 +14,20 @@ section{
     width: 5rem;
     border: 1px solid #aaa;
 }
+.cart-border{
+    border: 1px solid #aaa;
+    border-radius: 5px;
+}
 
 
 .grid-5{
     display: grid;
     grid-template-columns: repeat(5,1fr);
     line-height: 5rem;
-    border: 1px solid #aaa;
+    
     padding: 1rem;
-    border-radius: 5px;
+    
+    
 }
 .grid-5 .button{
     margin-top: 1.5rem;
@@ -69,6 +74,14 @@ section{
     .long-but{
         margin-left: 1rem;
     }
+    .grid-5{
+        grid-template-columns: 20% 27% 22% 12% 18%;
+        padding: 0;
+        margin-bottom: 1rem;
+    }
+    .grid-5 .button{
+         width: 5rem;
+    }
     
 }
 
@@ -87,6 +100,14 @@ section{
     }
     .long-but{
         margin-left: 1rem;
+    }
+    .grid-5{
+        grid-template-columns: 20% 27% 22% 12% 18%;
+        padding: 0;
+        margin-bottom: 1rem;
+    }
+    .grid-5 .button{
+         width: 5rem;
     }
     
 }
