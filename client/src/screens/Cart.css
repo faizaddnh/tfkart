@@ -31,6 +31,7 @@ section{
     border: 1px solid #aaa;
     text-align: center;
     border-radius: 5px;
+    padding-bottom: 2rem;
 }
 .long-but{
     background-color: gold;
@@ -54,9 +55,26 @@ section{
 
 
 @media only screen and (max-width: 500px){
-    html {
-        font-size: 65%;
+    
+    section {
+        padding: 2rem 4%;
     }
+    .grid-cart{
+        grid-template-columns:repeat(1,1fr);
+    }
+    .button{
+        font-size: 1rem;
+        padding: 0;
+    }
+    .long-but{
+        margin-left: 1rem;
+    }
+    
+}
+
+
+@media only screen and (max-width: 400px){
+    
     section {
         padding: 2rem 4%;
     }

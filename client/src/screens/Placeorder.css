@@ -41,9 +41,7 @@ section{
 
 
 @media only screen and (max-width: 500px){
-    html {
-        font-size: 65%;
-    }
+    
     section {
         padding: 2rem 4%;
     }
@@ -55,7 +53,27 @@ section{
         padding: 0;
     }
     .sect .long-but{
-        margin-left: 7rem;
+        margin-left: 2.5rem;
+    }
+    
+    
+}
+
+
+@media only screen and (max-width: 400px){
+    
+    section {
+        padding: 2rem 4%;
+    }
+    .main-sect{
+        grid-template-columns:repeat(1,1fr);
+    }
+    .button{
+        font-size: 1rem;
+        padding: 0;
+    }
+    .sect .long-but{
+        margin-left: 2.5rem;
     }
     
     

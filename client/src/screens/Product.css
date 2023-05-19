@@ -41,6 +41,27 @@
     }
     .prdct-img{
         height: 25rem;
-        width: 38rem;
+        width: 27.5rem;
+    }
+    .address-form input{
+        width: 3rem;
+        height: 2.5rem;
+        
+    }
+}
+
+
+@media only screen and (max-width: 400px){
+    .grid-prdct{
+        grid-template-columns:repeat(1,1fr);
+    }
+    .prdct-img{
+        height: 25rem;
+        width: 27.5rem;
+    }
+    .address-form input{
+        width: 3rem;
+        height: 2.5rem;
+        
     }
 }

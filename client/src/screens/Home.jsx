@@ -4,6 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { Store } from '../Store';
 import './Home.css';
 import Rating from '../components/Rating';
+import Carousel from './Carousel';
 
 function Home(props) {
     const [product, setProduct] = useState([]);
@@ -43,6 +44,7 @@ function Home(props) {
 
     return (
         <div>
+            <Carousel/>
             <section>
                 <div className='grid-display'>
                     {product.map((item) => (
