@@ -75,7 +75,7 @@ section{
         margin-left: 1rem;
     }
     .grid-5{
-        grid-template-columns: 22% 26% 22% 12% 18%;
+        grid-template-columns: repeat(5,1fr);
         padding: 0;
         margin-bottom: 1rem;
         font-size: 70%;
@@ -103,7 +103,7 @@ section{
         margin-left: 1rem;
     }
     .grid-5{
-        grid-template-columns: 22% 26% 22% 12% 18%;
+        grid-template-columns: repeat(5,1fr);
         padding: 0;
         margin-bottom: 1rem;
         font-size: 70%;
