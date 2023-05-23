@@ -39,7 +39,7 @@ function Product(props) {
     const productId = params.id;
 
     useEffect(() => {
-        axios.get('/api/product/' + productId).then(res => {
+        axios.get('http://localhost:7000/api/product/' + productId).then(res => {
             setData([res.data])
             console.log(data)
 
@@ -56,10 +56,24 @@ function Product(props) {
         e.preventDefault();
 
         try {
-            const { data } = await axios.post( `/api/product/${productId}/reviews`, { rating, comment, name, image } );
+            const { data } = await axios.post(`http://localhost:7000/api/product/${productId}/reviews`, { rating, comment, name, image });
             navigate('/');
         } catch (error) {
             console.log(error.message);
+        }
+    };
+
+    const uploadFileHandler = async (e, forImages) => {
+        const file = e.target.files[0];
+        const bodyFormData = new FormData();
+        bodyFormData.append('file', file);
+        try {
+            //dispatch({ type: 'UPLOAD_REQUEST' });
+            const { data } = await axios.post('http://localhost:7000/api/upload', bodyFormData);
+            //dispatch({ type: 'UPLOAD_SUCCESS' });
+            setImage(data.secure_url);
+        } catch (err) {
+            console.log(err.message);
         }
     };
 
@@ -91,7 +105,7 @@ function Product(props) {
 
 
             <section>
-            <h1 className='prdct-detail'>COMMENTS</h1>
+                <h1 className='prdct-detail'>COMMENTS</h1>
                 <div>
                     {data.map((product) => (
                         <div>{product.reviews.map((comment) => (
@@ -112,20 +126,26 @@ function Product(props) {
             </section>
 
 
-            
+
 
             <section className='address-center'>
-            <h1 className='prdct-detail'>YOUR COMMENT</h1>
+                <h1 className='prdct-detail'>YOUR COMMENT</h1>
                 <form onSubmit={reviewSubmit} className='address-form' >
                     <input type="text"
                         placeholder='name'
                         value={name}
                         onChange={(e) => setName(e.target.value)} required /> <br /> <br />
 
-                    <input type="text"
-                        placeholder='Your image....'
+                    <input type="hidden"
+                        placeholder='choose an image file...... '
                         value={image}
-                        onChange={(e) => setImage(e.target.value)} /><br /> <br />
+                        onChange={(e) => setImage(e.target.value)} />
+
+                    <div id='file'>
+                        <input type="file"
+                            onChange={uploadFileHandler} />
+                    </div>
+
 
 
                     <select name="rating" placeholder='give a rating' value={rating} onChange={(e) => setRating(e.target.value)} required >
@@ -150,7 +170,7 @@ function Product(props) {
                 </form>
             </section>
 
-            
+
 
         </div>
     );

@@ -8,6 +8,7 @@ const port = process.env.PORT || 7000;
 const userRouter = require('./routes/userRoute');
 const productRouter = require('./routes/productRoute');
 const orderRouter = require('./routes/orderRoute');
+const uploadRouter = require('./routes/uploadRoutes');
 
 dotenv.config();
 const app = express();
@@ -19,6 +20,7 @@ app.use(bodyParser.urlencoded({ extended: true, limit: '5mb' }));
 app.use('/api/user', userRouter);
 app.use('/api/product', productRouter);
 app.use('/api/orders', orderRouter);
+app.use('/api/upload', uploadRouter);
 
 mongoose.connect(process.env.MONGODB_URI).then(()=>{
     try {

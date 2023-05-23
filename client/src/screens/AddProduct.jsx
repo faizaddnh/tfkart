@@ -27,6 +27,21 @@ function AddProduct(props) {
         }
     };
 
+    const uploadFileHandler = async (e, forImages) => {
+        const file = e.target.files[0];
+        const bodyFormData = new FormData();
+        bodyFormData.append('file', file);
+        try {
+            //dispatch({ type: 'UPLOAD_REQUEST' });
+            const { data } = await axios.post('/api/upload', bodyFormData);
+            //dispatch({ type: 'UPLOAD_SUCCESS' });
+            setImage(data.secure_url);
+        } catch (err) {
+            console.log(err.message);
+        }
+    };
+
+
 
 
     return (
@@ -42,12 +57,18 @@ function AddProduct(props) {
                         <input type="text"
                             placeholder='Brand'
                             value={brand}
-                            onChange={(e) => setBrand(e.target.value)} required/> <br /> <br />
+                            onChange={(e) => setBrand(e.target.value)} required /> <br /> <br />
 
-                        <input type="text"
+                        <input type="hidden"
                             placeholder='Image-Address...'
                             value={image}
-                            onChange={(e) => setImage(e.target.value)} required/> <br /> <br />
+                            onChange={(e) => setImage(e.target.value)} required />
+
+                        <div id='file'>
+                            <label htmlFor="">image</label>
+                            <input type="file"
+                                onChange={uploadFileHandler} />
+                        </div>
 
                         <input type="number"
                             placeholder='Price'
