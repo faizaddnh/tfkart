@@ -35,6 +35,7 @@ function PlaceOrder(props) {
 
   const { state, dispatch: ctxDispatch } = useContext(Store);
   const { cart, userInfo } = state;
+  console.log(userInfo)
   const {
     cart: { cartItems },
   } = state;
@@ -48,9 +49,9 @@ function PlaceOrder(props) {
   cart.itemsPrice = round2(
     cart.cartItems.reduce((a, c) => a + c.quantity * c.price, 0)
   );
-  cart.shippingPrice = cart.itemsPrice > 500 ? round2(0) : round2(30);
+  cart.shippingPrice = cart.itemsPrice > 499 ? round2(0) : round2(30);
   cart.taxPrice = round2(0.18 * cart.itemsPrice);
-  cart.totalPrice = cart.itemsPrice + cart.shippingPrice + cart.taxPrice ;
+  cart.totalPrice = cart.itemsPrice + cart.shippingPrice + cart.taxPrice;
 
 
 
@@ -66,6 +67,12 @@ function PlaceOrder(props) {
           shippingPrice: cart.shippingPrice,
           taxPrice: cart.taxPrice,
           totalPrice: cart.totalPrice,
+
+        },
+        {
+          headers: {
+            authorization: `Bearer ${userInfo.token}`,
+          },
         });
       ctxDispatch({ type: 'CART_CLEAR' });
       dispatch({ type: 'CREATE_SUCCESS' });

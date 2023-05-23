@@ -62,7 +62,7 @@ function Shipping(props) {
                             value={mobile}
                             onChange={(e) => setMobile(e.target.value)} required /> <br /> <br />
 
-                        <button type='submit'>Continue...</button>
+                        <button className='button' type='submit'>Continue...</button>
 
                     </form>
                 </div>

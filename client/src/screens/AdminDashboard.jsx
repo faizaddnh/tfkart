@@ -24,6 +24,7 @@ function AdminDashboard(props) {
     const removeItemHandler = async (_id)=>{
         try {
             await axios.delete(`/api/orders/${_id}`);
+            window.location.reload();
         } catch (err) {
             console.log(err)
         }

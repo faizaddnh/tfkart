@@ -1,5 +1,5 @@
 const express = require('express');
-
+const { isAuth, isAdmin, generateToken } = require("../utils.js");
 const Order = require('../model/orderModel');
 
 const orderRouter = express.Router();
@@ -12,7 +12,7 @@ orderRouter.get('/', async (req, res) => {
 
 
 
-orderRouter.post('/', async (req, res) => {
+orderRouter.post('/', isAuth, async (req, res) => {
     const newOrder = new Order({
         orderItems: req.body.orderItems.map((x) => ({ ...x, product: x._id })),
         shippingAddress: req.body.shippingAddress,
@@ -20,6 +20,7 @@ orderRouter.post('/', async (req, res) => {
         shippingPrice: req.body.shippingPrice,
         taxPrice: req.body.taxPrice,
         totalPrice: req.body.totalPrice,
+        user: req.user._id
 
     });
 
@@ -28,13 +29,31 @@ orderRouter.post('/', async (req, res) => {
 });
 
 orderRouter.delete('/:id', async (req, res) => {
-    try{
+    try {
         //find the item by its id and delete it
         const deleteItem = await Order.findByIdAndDelete(req.params.id);
         res.status(200).json('Item Deleted');
-      }catch(err){
+    } catch (err) {
         res.json(err);
-      }
+    }
 });
+
+
+orderRouter.get('/mine', isAuth, async (req, res) => {
+    const orders = await Order.find({ user: req.user._id });
+    res.send(orders);
+});
+
+orderRouter.get(
+    '/:id',
+    isAuth,
+    async (req, res) => {
+        const order = await Order.findById(req.params.id);
+        if (order) {
+            res.send(order);
+        } else {
+            res.status(404).send({ message: 'Order Not Found' });
+        }
+    })
 
 module.exports = orderRouter;

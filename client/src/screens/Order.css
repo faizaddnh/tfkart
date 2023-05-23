@@ -1,0 +1,50 @@
+
+table {
+    border-collapse: collapse;
+    border: 2px solid rgb(200,200,200);
+    letter-spacing: 1px;
+  }
+
+  td, th {
+    border: 1px solid rgb(190,190,190);
+    padding: 10px 28px;
+  }
+
+  td {
+    text-align: center;
+  }
+  .TimesTableWrap{
+    height: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+
+
+  @media only screen and (max-width: 500px){
+    .center{
+        margin-left: 0rem;
+    }
+    table {
+        border-collapse: collapse;
+        border: 2px solid rgb(200,200,200);
+        letter-spacing: 0; 
+      }
+    
+      td, th {
+        border: 1px solid rgb(190,190,190);
+        padding: 1px 2px;
+        font-size: 80%;
+      }
+    
+      td {
+        text-align: center;
+      }
+      table .button{
+        width: 4rem;
+      }
+      
+  }
+
+  

@@ -14,6 +14,9 @@ import Header from './screens/Header';
 import SuccessOrder from './screens/SuccessOrder';
 import AdminRoute from './components/AdminRoute';
 import AdminProductList from './screens/AdminProductList';
+import OrderHistory from './screens/OrderHistory';
+import OrderId from './screens/OrderId';
+import ProtectedRoute from './components/ProtectedRoute';
 
 
 function App() {
@@ -32,10 +35,13 @@ function App() {
         <Route path="/addproduct" element={<AdminRoute>  <AddProduct /> </AdminRoute>} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/shipping" element={<Shipping />} />
-        <Route path="/placeorder" element={<PlaceOrder />} />
-        <Route path="/admin" element={<AdminRoute> <AdminDashboard /> </AdminRoute>} />
-        <Route path="/admin/product" element={<AdminRoute> <AdminProductList /> </AdminRoute>} />
+        <Route path="/placeorder" element={<ProtectedRoute> <PlaceOrder /> </ProtectedRoute> } />
+        <Route path="/admin" element={<AdminRoute> <AdminDashboard /> </AdminRoute> } />
+        <Route path="/admin/product" element={<AdminRoute> <AdminProductList /> </AdminRoute> } />
         <Route path="/complete" element={<SuccessOrder />} />
+        <Route path="/orderhistory" element={<ProtectedRoute> <OrderHistory /> </ProtectedRoute>} />
+        <Route path="/order/:id" element={<ProtectedRoute> <OrderId/> </ProtectedRoute>} />
+      
       </Routes>
     </BrowserRouter>
   );

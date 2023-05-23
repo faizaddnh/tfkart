@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { Store } from '../Store';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import './Cart.css';
 
 function Cart(props) {
@@ -42,39 +42,47 @@ function Cart(props) {
     return (
         <div>
             <section>
-                <div className='grid-cart'>
-                    <div className='cart-border'>
-                        {cartItems.map((item) => (
-                            <div >
-                                <div className='grid-5'>
-
-                                    <img className='img-cart' src={item.image} alt="" />
-                                    <div>{item.name}</div>
-                                    <div>
-                                        <button onClick={() =>
-                                            updateCartHandler(item, item.quantity + 1)
-                                        }>+</button>{' '}
-                                        <span>{item.quantity}</span>{' '}
-                                        <button onClick={() =>
-                                            updateCartHandler(item, item.quantity - 1)} disabled={item.quantity === 1}>-</button>{' '}
-
-                                    </div>
-                                    <div>₹ {item.price}</div>
-                                    <button className='button' onClick={() => removeItemHandler(item)}>delete</button>
-                                </div>
-                            </div>
-                        ))}
-                    </div>
-                    <div className='sub-total'>
-                        <h3>Subtotal ({cartItems.reduce((a, c) => a + c.quantity, 0)}{' '} items) : ₹ {total_price} </h3>
-                        <div>
-                            <button className='long-but' onClick={goToShipping}>Proceed to Checkout</button>
-                            <button className='long-but' onClick={goToHome} to="/">Shopping More</button>
+                {cartItems.length === 0 ? (
+                    <div className='TimesTableWrap'>
+                        <div >
+                            <h1>Cart is empty</h1>  
+                            <button onClick={goToHome} className='button'>Go Shopping</button>
                         </div>
-
-
                     </div>
-                </div>
+                ) : (
+                    <div className='grid-cart'>
+                        <div className='cart-border'>
+                            {cartItems.map((item) => (
+                                <div >
+                                    <div className='grid-5'>
+
+                                        <img className='img-cart' src={item.image} alt="" />
+                                        <div>{item.name}</div>
+                                        <div>
+                                            <button onClick={() =>
+                                                updateCartHandler(item, item.quantity + 1)
+                                            }>+</button>{' '}
+                                            <span>{item.quantity}</span>{' '}
+                                            <button onClick={() =>
+                                                updateCartHandler(item, item.quantity - 1)} disabled={item.quantity === 1}>-</button>{' '}
+
+                                        </div>
+                                        <div>₹ {item.price}</div>
+                                        <button className='button' onClick={() => removeItemHandler(item)}>delete</button>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                        <div className='sub-total'>
+                            <h3>Subtotal ({cartItems.reduce((a, c) => a + c.quantity, 0)}{' '} items) : ₹ {total_price} </h3>
+                            <div>
+                                <button className='long-but' onClick={goToShipping}>Proceed to Checkout</button>
+                                <button className='long-but' onClick={goToHome} >Shopping More</button>
+                            </div>
+
+
+                        </div>
+                    </div>)}
             </section>
 
 

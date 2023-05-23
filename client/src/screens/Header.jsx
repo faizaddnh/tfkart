@@ -47,7 +47,7 @@ function Header(props) {
                 <FaBars id="menu-btn" onClick={navActive} />
                 <nav className={style} data-aos="fade-right" data-aos-delay="600">
                     <Link className='a' onClick={navDactive} to="/">Home</Link>
-                    <Link className='a' onClick={navDactive} to="/cart">About</Link>
+                    <Link className='a' onClick={navDactive} to="/orderhistory">Order-History</Link>
                     <Link className='a' onClick= {signoutHandler} data-aos="fade-right" data-aos-delay="900" >SignOut</Link>
 
                     {userInfo ? (<Link className='a' onClick={navDactive}>{userInfo.name}</Link>) : (<Link className='a' onClick={navDactive} to="/signin">SignIn</Link>)}
