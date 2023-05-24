@@ -136,7 +136,7 @@ function Product(props) {
                         value={name}
                         onChange={(e) => setName(e.target.value)} required /> <br /> <br />
 
-                    <input type="hidden"
+                    <input type="text"
                         placeholder='choose an image file...... '
                         value={image}
                         onChange={(e) => setImage(e.target.value)} />

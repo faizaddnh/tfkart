@@ -59,13 +59,12 @@ function AddProduct(props) {
                             value={brand}
                             onChange={(e) => setBrand(e.target.value)} required /> <br /> <br />
 
-                        <input type="hidden"
-                            placeholder='Image-Address...'
+                        <input type="text"
+                            placeholder='do nothing here......'
                             value={image}
-                            onChange={(e) => setImage(e.target.value)} required />
+                            onChange={(e) => setImage(e.target.value)} required /> <br /> <br />
 
                         <div id='file'>
-                            <label htmlFor="">image</label>
                             <input type="file"
                                 onChange={uploadFileHandler} />
                         </div>
