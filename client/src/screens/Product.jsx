@@ -39,7 +39,7 @@ function Product(props) {
     const productId = params.id;
 
     useEffect(() => {
-        axios.get('http://localhost:7000/api/product/' + productId).then(res => {
+        axios.get('/api/product/' + productId).then(res => {
             setData([res.data])
             console.log(data)
 
@@ -56,7 +56,7 @@ function Product(props) {
         e.preventDefault();
 
         try {
-            const { data } = await axios.post(`http://localhost:7000/api/product/${productId}/reviews`, { rating, comment, name, image });
+            const { data } = await axios.post(`/api/product/${productId}/reviews`, { rating, comment, name, image });
             navigate('/');
         } catch (error) {
             console.log(error.message);
@@ -69,7 +69,7 @@ function Product(props) {
         bodyFormData.append('file', file);
         try {
             //dispatch({ type: 'UPLOAD_REQUEST' });
-            const { data } = await axios.post('http://localhost:7000/api/upload', bodyFormData);
+            const { data } = await axios.post('/api/upload', bodyFormData);
             //dispatch({ type: 'UPLOAD_SUCCESS' });
             setImage(data.secure_url);
         } catch (err) {
