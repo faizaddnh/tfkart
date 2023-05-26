@@ -32,7 +32,7 @@ function App() {
         <Route path="/product/:id" element={<Product />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/signin" element={<Signin />} />
-        <Route path="/addproduct" element={ <AddProduct />} />
+        <Route path="/addproduct" element={<AdminRoute> <AddProduct /> </AdminRoute> } />
         <Route path="/cart" element={<Cart />} />
         <Route path="/shipping" element={<Shipping />} />
         <Route path="/placeorder" element={<ProtectedRoute> <PlaceOrder /> </ProtectedRoute> } />
