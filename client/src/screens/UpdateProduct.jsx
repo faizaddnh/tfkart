@@ -1,11 +1,11 @@
 import axios from 'axios';
-import React, { useContext, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useContext, useEffect, useState } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
 import './AddProduct.css';
 import { Store } from '../Store';
 
-function AddProduct(props) {
-
+function UpdateProduct(props) {
+    const [data, setData] = useState([]);
     const [name, setName] = useState("");
     const [brand, setBrand] = useState("");
     const [image, setImage] = useState("");
@@ -29,10 +29,40 @@ function AddProduct(props) {
     const navigate = useNavigate();
 
 
-    const addprdct = async (e) => {
+    let params = useParams();
+    const productId = params.id;
+
+    useEffect(() => {
+        axios.get('/api/product/' + productId).then(res => {
+            setName(data.name);
+            setPrice(data.price);
+            setImage(data.image);
+            setCategory(data.category);
+            setCountInStock(data.countInStock);
+            setBrand(data.brand);
+            setDescription(data.description);
+            setReturnPolicy(data.returnPolicy);
+            setColor(data.color);
+            setSize(data.size);
+            setPack(data.pack);
+            setStyle(data.style);
+            setWeight(data.weight);
+            setLength(data.length);
+            setIdeal(data.ideal);
+            setSleeve(data.sleeve);
+            setType(data.type);
+
+        })
+            .catch((error) => {
+                console.log(error)
+            })
+    }, []);
+
+
+    const updateprdct = async (e) => {
         e.preventDefault();
         try {
-            const prdct = await axios.post('/api/product',
+            const prdct = await axios.put('/api/product/' + productId,
                 { name, brand, image, price, description, countInStock, category, returnPolicy, color, size, pack, style, weight, length, ideal, sleeve, type },
                 {
                     headers: {
@@ -44,6 +74,8 @@ function AddProduct(props) {
             console.log(err)
         }
     };
+
+
 
     const uploadFileHandler = async (e, forImages) => {
         const file = e.target.files[0];
@@ -60,13 +92,13 @@ function AddProduct(props) {
     };
 
 
-
-
     return (
         <div>
+
             <section className='address-center'>
+                <h1>UPDATE PRODUCT</h1>
                 <div>
-                    <form className='address-form' onSubmit={addprdct}>
+                    <form className='address-form' onSubmit={updateprdct}>
                         <input type="text"
                             placeholder='Name'
                             value={name}
@@ -77,12 +109,13 @@ function AddProduct(props) {
                             value={brand}
                             onChange={(e) => setBrand(e.target.value)} required /> <br /> <br />
 
-                        <input type="text"
-                            placeholder='do nothing here......'
+                        <input type="hidden"
+                            placeholder='Image-Address...'
                             value={image}
-                            onChange={(e) => setImage(e.target.value)} required /> <br /> <br />
+                            onChange={(e) => setImage(e.target.value)} required />
 
                         <div id='file'>
+                            <label htmlFor="">image</label>
                             <input type="file"
                                 onChange={uploadFileHandler} />
                         </div>
@@ -199,7 +232,7 @@ function AddProduct(props) {
                         </select>
                         <br /><br />
 
-                        <button className='button' type='submit'>ADD-PRODUCT</button>
+                        <button className='button' type='submit'>UPDATE-PRODUCT</button>
 
                     </form>
                 </div>
@@ -209,4 +242,4 @@ function AddProduct(props) {
     );
 }
 
-export default AddProduct;
+export default UpdateProduct;

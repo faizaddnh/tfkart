@@ -1,0 +1,36 @@
+#ctgry-main{
+    background-color: white;
+    color: black;
+
+}
+.grid-ctgry img{
+    width: 100%;
+    height: 15rem;
+    border-radius: .4rem .4rem 0 0;
+}
+.ctgry-display{
+    border-right: 1px solid #aaa;
+    border-collapse: collapse;
+    border-bottom: 1px solid #aaa;
+    padding: .5rem;
+    
+}
+.grid-ctgry{
+    display: grid;
+    grid-template-columns: repeat(5 ,1fr);
+    text-align: center;
+    line-height: 1.1rem;
+}
+.grid-admin{
+    display: grid;
+    grid-template-columns: repeat(4 ,1fr);
+    text-align: center;
+    line-height: 1.1rem;
+}
+
+
+@media only screen and (max-width: 500px){
+    .grid-ctgry{
+        grid-template-columns: repeat(2 ,1fr);
+    }
+}

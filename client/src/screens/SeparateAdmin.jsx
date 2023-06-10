@@ -1,10 +1,15 @@
 import axios from 'axios';
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import './Admin.css'
+import { Store } from '../Store';
 
-function AdminDashboard(props) {
-
+function SeparateAdmin(props) {
     const [orders, setOrders] = useState([]);
+
+
+    const { state } = useContext(Store);
+  const { userInfo } = state;
+  console.log(userInfo);
 
 
     useEffect(() => {
@@ -29,10 +34,8 @@ function AdminDashboard(props) {
             console.log(err)
         }
     };
-
-    
     return (
-        <div >
+        <div>
             <section>
                 <div >
                     {orders.map((item) =>
@@ -43,7 +46,6 @@ function AdminDashboard(props) {
                                 <div className='boder'>
                                     <div> Name: {item.shippingAddress.name}</div>
                                     <div> Mobille: {item.shippingAddress.mobile}</div>
-                                    <div> House : {item.shippingAddress.house}</div>
                                     <div> Address: {item.shippingAddress.address}</div>
                                     <div> City: {item.shippingAddress.city}</div>
                                     <div> District: {item.shippingAddress.district}</div>
@@ -56,7 +58,7 @@ function AdminDashboard(props) {
                                     <h1>Total Price: {item.totalPrice}</h1>
                                 </div>
                             </div>
-                            <div>{item.orderItems.map((item) => (
+                            <div>{item.orderItems.filter(task => task.user === userInfo._id).map((item) => (
                                 <div className='boder'>
                                     <div className='grid-3'>
                                         <img className='img-cart' src={item.image} alt="" />
@@ -76,9 +78,9 @@ function AdminDashboard(props) {
 
                 </div>
             </section>
-
+            
         </div>
     );
 }
 
-export default AdminDashboard;
+export default SeparateAdmin;

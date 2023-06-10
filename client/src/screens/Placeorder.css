@@ -1,8 +1,6 @@
 
 
-section{
-    padding:2rem 9%;
-}
+
 
 .main-sect{
     display: grid;
@@ -42,11 +40,10 @@ section{
 
 @media only screen and (max-width: 500px){
     
-    section {
-        padding: 1rem 3%;
-    }
+    
     .main-sect{
         grid-template-columns:repeat(1,1fr);
+        width: 96%;
     }
     .button{
         font-size: 1rem;

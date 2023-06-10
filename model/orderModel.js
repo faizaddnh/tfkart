@@ -9,6 +9,7 @@ const orderSchema = new Schema(
                 price: { type: Number },
                 quantity: { type: Number },
                 image: { type: String },
+                user: { type: String },
                 product: { type: mongoose.Schema.Types.ObjectId, ref: 'Product' },
             }
         ],
@@ -17,6 +18,7 @@ const orderSchema = new Schema(
             name: { type: String },
             mobile: { type: Number },
             address: { type: String },
+            house: {type: String},
             city: { type: String },
             district: { type: String },
             pincode: { type: Number },

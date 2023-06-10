@@ -54,6 +54,26 @@ orderRouter.get(
         } else {
             res.status(404).send({ message: 'Order Not Found' });
         }
-    })
+    });
+
+
+orderRouter.get(
+    '/summary',
+    isAuth,
+    isAdmin,
+    async (req, res) => {    
+        const orders = await Order.aggregate([
+            {
+                $group: {
+                    _id: null,
+                    numOrders: { $sum: 1 },
+                    totalSales: { $sum: '$totalPrice' },
+                },
+            },
+        ]);
+        res.send({ orders });
+    });
 
 module.exports = orderRouter;
+
+

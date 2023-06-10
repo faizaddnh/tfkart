@@ -1,0 +1,19 @@
+@-webkit-keyframes blackWhite {  
+    0% { color: rgb(247, 45, 45); }
+    
+    
+    25% { color: rgb(238, 250, 71); }
+    50% { color: rgb(66, 221, 241); }
+    75% { color: rgb(252, 53, 192); }
+    85% { color: rgb(40, 245, 91); }
+    
+  }
+  
+  .blinkdiv {
+      font-size: 1.6rem;
+      font-weight: 900;
+      color: rgb(14, 136, 173);
+      -webkit-animation-name: blackWhite;  
+      -webkit-animation-iteration-count: infinite;  
+      -webkit-animation-duration: 1s; 
+  }   

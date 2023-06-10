@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react';
 import './Header.css'
 import { Link, useNavigate } from 'react-router-dom';
 import { Store } from '../Store';
-import { FaBars } from "react-icons/fa";
+import { FaBars, FaSearch } from "react-icons/fa";
 
 function Header(props) {
     const [style, setStyle] = useState("navbar");
@@ -19,6 +19,10 @@ function Header(props) {
         setStyle("navbar");
         navigate('/signin');
     };
+
+    const goToSearchScreen = () =>{
+        navigate('/search');
+    }
     
 
     const navActive=()=>{
@@ -45,6 +49,7 @@ function Header(props) {
                 <img className="logo" src="https://image.shutterstock.com/image-vector/tf-letter-logo-circle-gold-600w-698190973.jpg" alt="" />
                 <div className='tfkart'>TFKart</div>
                 <FaBars id="menu-btn" onClick={navActive} />
+                <FaSearch onClick={goToSearchScreen} className='fa-search' />
                 <nav className={style} data-aos="fade-right" data-aos-delay="600">
                     <Link className='a' onClick={navDactive} to="/">Home</Link>
                     <Link className='a' onClick={navDactive} to="/orderhistory">Order-History</Link>
@@ -52,8 +57,8 @@ function Header(props) {
 
                     {userInfo ? (<Link className='a' onClick={navDactive}>{userInfo.name}</Link>) : (<Link className='a' onClick={navDactive} to="/signin">SignIn</Link>)}
 
-                    <Link className='a' onClick={navDactive} to="/admin">AdminPage</Link>
-                    <Link className='a' onClick={navDactive} to="/admin/product">Admin-Product</Link>
+                    <Link className='a' onClick={navDactive} to="/separate">AdminPage</Link>
+                    <Link className='a' onClick={navDactive} to="/ad">Admin-Product</Link>
                     <Link className='a' onClick={navDactive} to="/addproduct">Add-product</Link>
 
 

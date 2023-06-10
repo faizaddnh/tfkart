@@ -95,6 +95,16 @@ function Product(props) {
                                 <div>Brand: {product.brand}</div>
                                 <div> Category: {product.category}</div>
                                 <div> Description: {product.description}</div>
+                                <div>Color: {product.color}</div>
+                                <div>Size: {product.size}</div>
+                                <div>Pack Of: {product.pack}</div>
+                                <div>Style: {product.style}</div>
+                                <div>Weight: {product.weight}</div>
+                                <div>Length: {product.length}</div>
+                                <div>Ideal For: {product.ideal}</div>
+                                <div>Sleeve: {product.sleeve}</div>
+                                <div>Type: {product.type}</div>
+                                <div>Return Policy: {product.returnPolicy}</div>
                             </div>
 
                         </div>
@@ -145,7 +155,6 @@ function Product(props) {
                         <input type="file"
                             onChange={uploadFileHandler} />
                     </div>
-
 
 
                     <select name="rating" placeholder='give a rating' value={rating} onChange={(e) => setRating(e.target.value)} required >

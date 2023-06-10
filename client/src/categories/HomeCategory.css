@@ -1,0 +1,27 @@
+.ml-3{
+    margin-left: 3rem;
+    text-align: center;
+    text-decoration: none;
+    color: rgb(223, 189, 2);
+    font-weight: 600;
+}
+.category-round{
+    width: 5rem;
+    height: 5rem;
+    border: 3px solid gold;
+    border-radius: 50%;
+}
+.category-img{
+    width: 5rem;
+    height: 5rem;
+    border-radius: 50%;
+}
+
+
+
+@media only screen and (max-width: 500px){
+    .of{
+        overflow: auto;
+        
+    }
+}

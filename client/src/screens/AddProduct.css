@@ -16,6 +16,11 @@
     border-radius: 5px;
     
 }
+select option{
+    font-size: 1.2rem;
+    font-weight: 600;
+    
+}
 
 .address-form textarea{
     width: 30rem;

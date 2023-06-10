@@ -5,6 +5,7 @@ import { Store } from '../Store';
 import './Home.css';
 import Rating from '../components/Rating';
 import Carousel from './Carousel';
+import HomeCategory from '../categories/HomeCategory';
 
 function Home(props) {
     const [product, setProduct] = useState([]);
@@ -31,7 +32,6 @@ function Home(props) {
         const fetchData = async () => {
             try {
                 const result = await axios.get('/api/product');
-                console.log(result.data);
                 setProduct(result.data);
             } catch (err) {
                 console.log(err.data);
@@ -44,23 +44,112 @@ function Home(props) {
 
     return (
         <div>
-            <Carousel/>
-            <section>
-                <div className='grid-display'>
-                    {product.map((item) => (
-                        <div className='prdct-display'>
-                            <Link className='link' to={'/product/' + item._id}>
-                                
-                                <img className='img-prdct' src={item.image} alt="" />
-                                <div className='name'>{item.name}</div>
-                                <div className='light-color'>{item.brand}</div>
-                                <div className='price'> Price: ₹ {item.price}</div>
-                                <Rating className='rating' rating={item.rating} numReviews={item.numReviews}/>
-                            </Link>
-                            <button className='button' onClick={() => { addToCart(item._id) }}>ADD-TO-CART</button>
-                        </div>
+            <Carousel />
+            <HomeCategory />
 
-                    ))}
+
+            <section >
+                <div className='section-1'>
+                    <div className='heading-1'>FASHION HUNGAMA</div>
+                    <div className='grid-display-1 '>
+
+                        {product.filter(task => task.category === 'Fashion').slice(0, 12).map((item) => (
+                            <div className='prdct-display-1'>
+                               <Link className='link' to={'/product/category/' + item._id}>
+                                    <img className='img-prdct-1' src={item.image} alt="" />
+                                    <div className='name-2'>{item.name}</div>
+                                    <div className='price'> Just ₹{item.price}</div>
+                                </Link>
+
+                            </div>
+
+                        ))}
+                    </div>
+                </div>
+            </section>
+
+
+
+            <section >
+                <div className='section'>
+                    <div className='heading-2'>Discounts for You</div>
+                    <div className='grid-display-2 '>
+
+                        {product.filter(task => task.category === 'Foot-wear').slice(0, 12).map((item) => (
+                            <div className='prdct-display-2'>
+                                <Link className='link' to={'/product/category/' + item._id}>
+                                    <img className='img-prdct-2' src={item.image} alt="" />
+                                    <div className='name-2'>{item.name}</div>
+                                    <div className='price'>  ₹{item.price}</div>
+                                </Link>
+
+                            </div>
+
+                        ))}
+                    </div>
+                </div>
+            </section>
+
+
+            <section>
+                <div>
+                    <div className='heading-3'>ELECTRONICS DEALS</div>
+                    <img className='big-sale' src="https://thumbs.dreamstime.com/b/concept-big-sale-people-silhouettes-men-women-shopping-online-big-smartphone-sale-inscription-tiny-people-concept-184147807.jpg" alt="" />
+                </div>
+                <div className='section'>
+                    <div className='grid-display-1 '>
+                        {product.filter(task => task.category === 'Electronics').slice(0, 18).map((item) => (
+                            <div className='prdct-display-3'>
+                                <Link className='link' to={'/product/category/' + item._id}>
+                                    <img className='img-prdct-1' src={item.image} alt="" />
+                                    <div className='name-2'>{item.name}</div>
+                                    <div className='price'> Price: ₹{item.price}</div>
+                                </Link>
+
+                            </div>
+
+                        ))}
+                    </div>
+                </div>
+            </section>
+
+            <section >
+                <div className='section-2'>
+                    <div className='heading-1'>BUDGET BUYS</div>
+                    <div className='grid-display-1 '>
+
+                        {product.filter(task => task.category === 'Beauty').slice(1, 19).map((item) => (
+                            <div className='prdct-display-1'>
+                                <Link className='link' to={'/product/category/' + item._id}>
+                                    <img className='img-prdct-1' src={item.image} alt="" />
+                                    <div className='name-2'>{item.name}</div>
+                                    <div className='price'> Just ₹{item.price}</div>
+                                </Link>
+
+                            </div>
+
+                        ))}
+                    </div>
+                </div>
+            </section>
+
+            <section >
+                <div className='section-3'>
+                    <div className='heading-4'>Discounts for You</div>
+                    <div className='grid-display-2 '>
+
+                        {product.filter(task => task.category === 'Perfume').slice(5, 17).map((item) => (
+                            <div className='prdct-display-4'>
+                                <Link className='link' to={'/product/category/' + item._id}>
+                                    <img className='img-prdct-2' src={item.image} alt="" />
+                                    <div className='name-2'>{item.name}</div>
+                                    <div className='price-4'> Starting from ₹{item.price}</div>
+                                </Link>
+
+                            </div>
+
+                        ))}
+                    </div>
                 </div>
             </section>
 

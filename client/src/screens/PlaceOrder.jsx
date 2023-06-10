@@ -49,7 +49,7 @@ function PlaceOrder(props) {
   cart.itemsPrice = round2(
     cart.cartItems.reduce((a, c) => a + c.quantity * c.price, 0)
   );
-  cart.shippingPrice = cart.itemsPrice > 499 ? round2(0) : round2(30);
+  cart.shippingPrice = cart.itemsPrice > 500 ? round2(0) : round2(30);
   cart.taxPrice = round2(0.18 * cart.itemsPrice);
   cart.totalPrice = cart.itemsPrice + cart.shippingPrice + cart.taxPrice;
 
@@ -97,6 +97,7 @@ function PlaceOrder(props) {
               <h3>shipping</h3>
               <p>Name: {shippingAddress.name}</p>
               <p>Mobile : {shippingAddress.mobile}</p>
+              <p>House : {shippingAddress.house}</p>
               <p>Address : {shippingAddress.address}</p>
               <p>City : {shippingAddress.city}</p>
               <p>District : {shippingAddress.district}</p>

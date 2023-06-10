@@ -5,6 +5,7 @@ import { Store } from '../Store';
 function Shipping(props) {
 
     const [name, setName] = useState("");
+    const [house, setHouse] = useState("");
     const [address, setAddress] = useState("");
     const [district, setDistrict] = useState("");
     const [pincode, setPincode] = useState("");
@@ -19,9 +20,9 @@ function Shipping(props) {
         e.preventDefault();
         ctxDispatch({
             type: 'SAVE_SHIPPING_ADDRESS',
-            payload: { name, address, pincode, district, city, mobile },
+            payload: { name, house, address, pincode, district, city, mobile },
         });
-        localStorage.setItem('shippingAddress', JSON.stringify({ name, address, pincode, district, city, mobile }));
+        localStorage.setItem('shippingAddress', JSON.stringify({ name, house, address, pincode, district, city, mobile }));
         navigate('/placeorder');
 
     }
@@ -36,6 +37,11 @@ function Shipping(props) {
                             placeholder='Your Name....'
                             value={name}
                             onChange={(e) => setName(e.target.value)} required /> <br /> <br />
+
+                        <input type="text"
+                            placeholder='House Name....'
+                            value={house}
+                            onChange={(e) => setHouse(e.target.value)} required /> <br /> <br />
 
                         <input type="text"
                             placeholder='Address......'
