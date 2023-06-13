@@ -54,7 +54,7 @@ function CategoryElectronics(props) {
                                 <Link className='link' to={'/product/' + item._id}>
 
                                     <img className='ctgry-prdct' src={item.image} alt="" />
-                                    <div className='name'>{item.name}</div>
+                                    <div className='name-3'>{item.name}</div>
                                     <div className='light-color'>{item.brand}</div>
                                     <div className='price'> Price: ₹ {item.price}</div>
                                     <Rating className='rating' rating={item.rating} numReviews={item.numReviews} />

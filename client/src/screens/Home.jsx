@@ -134,7 +134,7 @@ function Home(props) {
             </section>
 
             <section >
-                <div className='section-3'>
+                <div>
                     <div className='heading-4'>Discounts for You</div>
                     <div className='grid-display-2 '>
 
@@ -149,6 +149,27 @@ function Home(props) {
                             </div>
 
                         ))}
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <div className='section-3'>
+                    <div className='heading-3'>MONSOON DHAMAKA</div>
+                    <div className='section'>
+                        <div className='grid-display-1 '>
+                            {product.filter(task => task.category === 'umbrella').slice(0, 18).map((item) => (
+                                <div className='prdct-display-3'>
+                                    <Link className='link' to={'/product/category/' + item._id}>
+                                        <img className='img-prdct-1' src={item.image} alt="" />
+                                        <div className='name-2'>{item.name}</div>
+                                        <div className='price'> Price: ₹{item.price}</div>
+                                    </Link>
+
+                                </div>
+
+                            ))}
+                        </div>
                     </div>
                 </div>
             </section>
