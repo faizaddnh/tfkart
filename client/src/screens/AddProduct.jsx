@@ -3,6 +3,8 @@ import React, { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './AddProduct.css';
 import { Store } from '../Store';
+import { TwitterPicker } from "react-color"
+import { v4 as uuidv4 } from 'uuid';
 
 function AddProduct(props) {
 
@@ -14,8 +16,6 @@ function AddProduct(props) {
     const [countInStock, setCountInStock] = useState("");
     const [category, setCategory] = useState("");
     const [returnPolicy, setReturnPolicy] = useState("");
-    const [color, setColor] = useState("");
-    const [size, setSize] = useState("");
     const [pack, setPack] = useState("");
     const [style, setStyle] = useState("");
     const [weight, setWeight] = useState("");
@@ -28,12 +28,59 @@ function AddProduct(props) {
     const { userInfo } = state;
     const navigate = useNavigate();
 
+    const [sizes] = useState([
+        { name: 'S' },
+        { name: 'M' },
+        { name: 'L' },
+        { name: 'XL' },
+        { name: 'XXL' },
+        { name: '1 Yr' },
+        { name: '2 Yr' },
+        { name: '3 Yr' },
+        { name: '4-7 Yr' },
+        { name: '8-11Yr' },
+        { name: '12-15' },
+        { name: '4' },
+        { name: '5' },
+        { name: '6' },
+        { name: '7' },
+        { name: '8' },
+        { name: '9' },
+        { name: '10' },
+        { name: '11' },
+        { name: '12' },
+    ]);
+    const [sizeList, setSizeList] = useState([]);
+    const [colors, setColors] = useState([]);
+
+    const chooseSize = sizeObject => {
+        const filtered = sizeList.filter(size => size.name !== sizeObject.name);
+        setSizeList([...filtered, sizeObject])
+
+    }
+
+    const deleteSize = name => {
+        const filtered = sizeList.filter(size => size.name !== name);
+        setSizeList(filtered);
+    }
+    console.log(sizeList);
+
+    const saveColors = (color) => {
+        const filtered = colors.filter(clr => clr.color !== color.hex);
+        setColors([...filtered, color])
+    }
+    const deleteColor = color => {
+        const filtered = colors.filter(clr => clr.hex !== color.hex);
+        setColors([...filtered]);
+    }
+    console.log(colors);
+
 
     const addprdct = async (e) => {
         e.preventDefault();
         try {
             const prdct = await axios.post('/api/product',
-                { name, brand, image, price, description, countInStock, category, returnPolicy, color, size, pack, style, weight, length, ideal, sleeve, type },
+                { name, brand, image, price, description, countInStock, category, returnPolicy, colors, sizeList, pack, style, weight, length, ideal, sleeve, type },
                 {
                     headers: {
                         authorization: `Bearer ${userInfo.token}`,
@@ -128,11 +175,6 @@ function AddProduct(props) {
                         <br /><br />
 
                         <input type="text"
-                            placeholder='Color'
-                            value={color}
-                            onChange={(e) => setColor(e.target.value)} /> <br /> <br />
-
-                        <input type="text"
                             placeholder='Pack of'
                             value={pack}
                             onChange={(e) => setPack(e.target.value)} /> <br /> <br />
@@ -174,35 +216,55 @@ function AddProduct(props) {
                             value={type}
                             onChange={(e) => setType(e.target.value)} /> <br /> <br />
 
-                        <select name="size" placeholder='Size' value={size} onChange={(e) => setSize(e.target.value)}>
-                            <option value="">Select a Size......</option>
-                            <option >1-6 month</option>
-                            <option >6-12 month</option>
-                            <option >12-18 month</option>
-                            <option >18-24 month</option>
-                            <option >2-5 year</option>
-                            <option >5-8 year</option>
-                            <option >8-12 year</option>
-                            <option >S</option>
-                            <option >M</option>
-                            <option >L</option>
-                            <option >XL</option>
-                            <option >XXL</option>
-                            <option >4</option>
-                            <option >6</option>
-                            <option >7</option>
-                            <option >8</option>
-                            <option >9</option>
-                            <option >10</option>
-                            <option >12</option>
-                            <option >Other</option>
-                        </select>
+                        <div>
+                            <label htmlFor="sizes" >choose sizes</label>
+                            {sizes.length > 0 && <div className='size-grid' >
+                                {sizes.map(size => (
+                                    <div className='size' key={size.name} onClick={() => chooseSize(size)}>{size.name}</div>
+                                ))}
+                            </div>}
+                        </div>
+                        <br /><br />
+
+                        <div >
+                            {sizeList.length > 0 &&
+                                <div>
+                                    <div>selected sizes</div>
+                                    <div className='size-grid' >
+                                        {sizeList.map(size => (
+                                            <div key={size.name} className="size" onClick={() => deleteSize(size.name)}>{size.name}</div>
+                                        ))}
+                                    </div>
+                                </div>}
+                        </div>
+                        <br /><br />
+
+                        <div >
+                            <label htmlFor="colors" >choose colors</label>
+                            <TwitterPicker className='twitter-picker' onChangeComplete={saveColors} />
+                        </div>
+                        <br /><br />
+
+
+                        <div >
+                            {colors.length > 0 &&
+                                <div>
+                                    <div>selected colors</div>
+                                    <div className='size-grid twitter-picker'>
+                                        {colors.map(color => (
+                                            <div className="p-1" >
+                                                <div className="colour" style={{ background: color.hex }} onClick={() => deleteColor(color)}></div></div>
+                                        ))}
+                                    </div>
+                                </div>}
+                        </div>
                         <br /><br />
 
                         <button className='button' type='submit'>ADD-PRODUCT</button>
 
                     </form>
                 </div>
+
             </section>
 
         </div>

@@ -29,6 +29,35 @@ select option{
     border-radius: 5px;
     
 }
+.size-grid{
+    display: grid;
+    grid-template-columns: repeat(7,1fr);
+    margin-right: 22rem;
+    margin-left: 22rem;
+    line-height: 1rem;
+    gap: 0;
+}    
+.size{
+    border: 1px solid #aaa;
+    margin: .3rem;
+    border-radius: .5rem;
+    padding-top: .5rem;
+    padding-bottom: .5rem;
+    cursor: pointer;
+    
+}
+.twitter-picker{
+    margin-left: 29rem;  
+}
+.colour{
+    height: 30px;
+    width: 30px;
+    cursor: pointer;
+    margin: .1rem;
+    border: 1px solid #aaa;
+    border-radius: .5rem;
+    
+}
 
 
 @media only screen and (max-width: 500px){
@@ -44,6 +73,26 @@ select option{
         width: 22rem;
         height: 6rem;
     }
+    .size-grid{
+        display: grid;
+        grid-template-columns: repeat(5,1fr);
+        margin-right: 3rem;
+        margin-left: 3rem;
+        line-height: 1rem;
+        gap: 0;
+    }    
+    .size{
+        border: 1px solid #aaa;
+        margin: .3rem;
+        border-radius: .5rem;
+        padding-top: .5rem;
+        padding-bottom: .5rem;
+        cursor: pointer;
+        
+    }
+    .twitter-picker{
+        margin-left: 4.5rem;  
+    } 
 }
 
 @media only screen and (max-width: 400px){

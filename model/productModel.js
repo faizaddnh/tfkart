@@ -26,8 +26,6 @@ const productSchema = new schema(
         countInStock: { type: Number },
         user: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
         returnPolicy: { type: String },
-        color: { type: String },
-        size: { type: String },
         pack: { type: String },
         style: { type: String },
         weight: { type: String },
@@ -38,6 +36,8 @@ const productSchema = new schema(
         rating: { type: Number },
         numReviews: { type: Number },
         reviews: [reviewSchema],
+        sizeList: { type: [Map] },
+        colors: { type: [Map] },
     },
     {
         timestamps: true,
