@@ -23,6 +23,7 @@ const productSchema = new schema(
         description: { type: String },
         price: { type: Number },
         image: { type: String },
+        images: [String],
         countInStock: { type: Number },
         user: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
         returnPolicy: { type: String },

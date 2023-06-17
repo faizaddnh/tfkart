@@ -5,6 +5,9 @@
     color: rgb(223, 189, 2);
     font-weight: 600;
 }
+.ml-3:first-child {
+    margin-left: 0px; 
+}
 .category-round{
     width: 5rem;
     height: 5rem;

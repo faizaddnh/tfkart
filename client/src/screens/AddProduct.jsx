@@ -11,6 +11,7 @@ function AddProduct(props) {
     const [name, setName] = useState("");
     const [brand, setBrand] = useState("");
     const [image, setImage] = useState("");
+    const [images, setImages] = useState([]);
     const [price, setPrice] = useState("");
     const [description, setDescription] = useState("");
     const [countInStock, setCountInStock] = useState("");
@@ -80,7 +81,7 @@ function AddProduct(props) {
         e.preventDefault();
         try {
             const prdct = await axios.post('/api/product',
-                { name, brand, image, price, description, countInStock, category, returnPolicy, colors, sizeList, pack, style, weight, length, ideal, sleeve, type },
+                { name, brand, image, images, price, description, countInStock, category, returnPolicy, colors, sizeList, pack, style, weight, length, ideal, sleeve, type },
                 {
                     headers: {
                         authorization: `Bearer ${userInfo.token}`,
@@ -101,6 +102,20 @@ function AddProduct(props) {
             const { data } = await axios.post('/api/upload', bodyFormData);
             //dispatch({ type: 'UPLOAD_SUCCESS' });
             setImage(data.secure_url);
+        } catch (err) {
+            console.log(err.message);
+        }
+    };
+
+    const uploadFileImages = async (e, forImages) => {
+        const file = e.target.files[0];
+        const bodyFormData = new FormData();
+        bodyFormData.append('file', file);
+        try {
+            //dispatch({ type: 'UPLOAD_REQUEST' });
+            const { data } = await axios.post('/api/upload', bodyFormData);
+            //dispatch({ type: 'UPLOAD_SUCCESS' });
+            setImages([...images, data.secure_url]);
         } catch (err) {
             console.log(err.message);
         }
@@ -132,6 +147,21 @@ function AddProduct(props) {
                         <div id='file'>
                             <input type="file"
                                 onChange={uploadFileHandler} />
+                        </div>
+
+                        <input type="text"
+                            placeholder='Additional Images......'
+                            value={images}
+                            onChange={(e) => setImages(e.target.value)} /> <br /> <br />
+
+                        <div id='file'>
+                            <input type="file"
+                                onChange={uploadFileImages} />
+                        </div>
+
+                        <div id='file'>
+                            <input type="file"
+                                onChange={uploadFileImages} />
                         </div>
 
                         <input type="number"

@@ -12,6 +12,7 @@ function UpdateProduct(props) {
     const [name, setName] = useState("");
     const [brand, setBrand] = useState("");
     const [image, setImage] = useState("");
+    const [images, setImages] = useState([]);
     const [price, setPrice] = useState("");
     const [description, setDescription] = useState("");
     const [countInStock, setCountInStock] = useState("");
@@ -86,6 +87,7 @@ function UpdateProduct(props) {
             setName(data.name);
             setPrice(data.price);
             setImage(data.image);
+            setImages(data.images);
             setCategory(data.category);
             setCountInStock(data.countInStock);
             setBrand(data.brand);
@@ -112,7 +114,7 @@ function UpdateProduct(props) {
         e.preventDefault();
         try {
             const prdct = await axios.put('/api/product/' + productId,
-                { name, brand, image, price, description, countInStock, category, returnPolicy, colors, sizeList, pack, style, weight, length, ideal, sleeve, type },
+                { name, brand, image, images, price, description, countInStock, category, returnPolicy, colors, sizeList, pack, style, weight, length, ideal, sleeve, type },
                 {
                     headers: {
                         authorization: `Bearer ${userInfo.token}`,
@@ -135,6 +137,20 @@ function UpdateProduct(props) {
             const { data } = await axios.post('/api/upload', bodyFormData);
             //dispatch({ type: 'UPLOAD_SUCCESS' });
             setImage(data.secure_url);
+        } catch (err) {
+            console.log(err.message);
+        }
+    };
+
+    const uploadFileImages = async (e, forImages) => {
+        const file = e.target.files[0];
+        const bodyFormData = new FormData();
+        bodyFormData.append('file', file);
+        try {
+            //dispatch({ type: 'UPLOAD_REQUEST' });
+            const { data } = await axios.post('/api/upload', bodyFormData);
+            //dispatch({ type: 'UPLOAD_SUCCESS' });
+            setImages([...images, data.secure_url]);
         } catch (err) {
             console.log(err.message);
         }
@@ -167,6 +183,21 @@ function UpdateProduct(props) {
                             <label htmlFor="">image</label>
                             <input type="file"
                                 onChange={uploadFileHandler} />
+                        </div>
+
+                        <input type="text"
+                            placeholder='do nothing here......'
+                            value={images}
+                            onChange={(e) => setImages(e.target.value)} /> <br /> <br />
+
+                        <div id='file'>
+                            <input type="file"
+                                onChange={uploadFileImages} />
+                        </div>
+
+                        <div id='file'>
+                            <input type="file"
+                                onChange={uploadFileImages} />
                         </div>
 
                         <input type="number"

@@ -1,16 +1,19 @@
 import axios from 'axios';
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import Rating from '../components/Rating';
 import './Product.css'
+import { Store } from '../Store';
 
 function Product(props) {
 
-    const [data, setData] = useState([]);
+    const [product, setProduct] = useState([]);
     const [name, setName] = useState("");
     const [image, setImage] = useState("");
     const [comment, setComment] = useState("");
     const [rating, setRating] = useState("");
+    const [customerSize, setCustomerSize] = useState("");
+    const [customerColor, setCustomerColor] = useState("");
     const navigate = useNavigate();
 
     const reducer = (state, action) => {
@@ -35,14 +38,33 @@ function Product(props) {
     };
 
 
+
+
+    const { state, dispatch: ctxDispatch } = useContext(Store);
+    const { cart, userInfo } = state;
+
+
+
     let params = useParams();
     const productId = params.id;
 
+    const addToCart = async (id) => {
+        const existItem = cart.cartItems.find((x) => x._id === product._id);
+        const quantity = existItem ? existItem.quantity + 1 : 1;
+        const { data } = await axios.get(`/api/product/${id}`);
+        console.log(data)
+
+        ctxDispatch({
+            type: 'CART_ADD_ITEM',
+            payload: { ...data, quantity, customerSize, customerColor },
+        });
+        navigate("/cart");
+    };
+
+
     useEffect(() => {
         axios.get('/api/product/' + productId).then(res => {
-            setData([res.data])
-            console.log(data)
-
+            setProduct([res.data])
         })
             .catch((error) => {
                 console.log(error)
@@ -62,6 +84,14 @@ function Product(props) {
             console.log(error.message);
         }
     };
+
+    const chooseSize = item => {
+        setCustomerSize(item.name);
+    }
+
+    const chooseColor = color => {
+        setCustomerColor(color.hex);
+    }
 
     const uploadFileHandler = async (e, forImages) => {
         const file = e.target.files[0];
@@ -84,29 +114,46 @@ function Product(props) {
                 <h1 className='prdct-detail'>PRODUCT DETAILS</h1>
                 <div>
 
-                    {data.map((product) => (
+                    {product.map((items) => (
                         <div className='grid-prdct'>
 
-                            <img className='prdct-img' src={product.image} alt="" />
+                            <img className='prdct-img' src={items.image} alt="" />
                             <div className='prdct-line'>
-                                <h1> Name: {product.name}</h1>
-                                <Rating rating={product.rating} numReviews={product.numReviews} />
-                                <div> Price: ₹ {product.price}</div>
-                                <div>Brand: {product.brand}</div>
-                                <div> Category: {product.category}</div>
-                                <div> Description: {product.description}</div>
-                                <div>Color: {product.color}</div>
-                                <div>Size: {product.size}</div>
-                                <div>Pack Of: {product.pack}</div>
-                                <div>Style: {product.style}</div>
-                                <div>Weight: {product.weight}</div>
-                                <div>Length: {product.length}</div>
-                                <div>Ideal For: {product.ideal}</div>
-                                <div>Sleeve: {product.sleeve}</div>
-                                <div>Type: {product.type}</div>
-                                <div>Return Policy: {product.returnPolicy}</div>
-                            </div>
+                                <h1> Name: {items.name}</h1>
+                                <Rating rating={items.rating} numReviews={items.numReviews} />
+                                <div> Price: ₹ {items.price}</div>
+                                <div>Brand: {items.brand}</div>
+                                <div> Category: {items.category}</div>
+                                <div> Description: {items.description}</div>
+                                <div>Pack Of: {items.pack}</div>
+                                <div>Style: {items.style}</div>
+                                <div>Weight: {items.weight}</div>
+                                <div>Length: {items.length}</div>
+                                <div>Ideal For: {items.ideal}</div>
 
+                                <div>Size:
+                                    <div className='customer-size-grid'>
+                                        {items.sizeList.map((item) => (
+                                            <button key={item.name} className="customer-size" onClick={() => chooseSize(item)}> {item.name} </button>
+                                        ))}
+                                    </div>
+                                </div>
+
+                                <div>colors:
+                                    <div className='customer-size-grid customer-twitter-picker'>
+                                        {items.colors.map((color) => (
+                                            <button className="customer-colour" style={{ background: color.hex }} onClick={() => chooseColor(color)}> </button>
+                                        ))}
+                                    </div>
+                                </div>
+                                
+
+                                <div>Sleeve: {items.sleeve}</div>
+                                <div>Type: {items.type}</div>
+                                <div>Return Policy: {items.returnPolicy}</div>
+
+                                <button onClick={() => { addToCart(items._id) }} className='button' >ADD-TO-CART</button>
+                            </div>
                         </div>
 
                     ))}
@@ -117,8 +164,8 @@ function Product(props) {
             <section>
                 <h1 className='prdct-detail'>COMMENTS</h1>
                 <div>
-                    {data.map((product) => (
-                        <div>{product.reviews.map((comment) => (
+                    {product.map((items) => (
+                        <div>{items.reviews.map((comment) => (
                             <div className='boder'>
                                 <div className='flex'>
                                     <img className='img-comment' src={comment.image} alt="" />

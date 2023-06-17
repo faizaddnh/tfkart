@@ -33,6 +33,38 @@
    border: 0px solid black;
    
 }
+.customer-size-grid{
+    display: grid;
+    grid-template-columns: repeat(7,1fr);
+    line-height: 1rem;
+    gap: 0;
+}    
+.customer-size{
+    border: 1px solid #aaa;
+    margin: .3rem;
+    border-radius: .5rem;
+    padding-top: .5rem;
+    padding-bottom: .5rem;
+    cursor: pointer;
+    
+}
+.customer-size:focus{
+    background-color: aqua;
+}
+.customer-twitter-picke{
+    margin-left: 0rem;  
+}
+.customer-colour{
+    height: 2rem;
+    border: 1px solid #aaa;
+    margin: .3rem;
+    border-radius: .5rem;
+    cursor: pointer;
+}
+
+.customer-colour:focus{
+    border: 4px solid green;
+}
 
 
 
@@ -48,7 +80,7 @@
     }
     .prdct-img{
         height: 25rem;
-        width: 27.5rem;
+        width: 25rem;
     }
     .address-form input{
         width: 3rem;
@@ -64,7 +96,7 @@
     }
     .prdct-img{
         height: 25rem;
-        width: 27.5rem;
+        width: 25rem;
     }
     .address-form input{
         width: 3rem;

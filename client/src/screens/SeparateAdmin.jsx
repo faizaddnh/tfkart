@@ -60,10 +60,12 @@ function SeparateAdmin(props) {
                             </div>
                             <div>{item.orderItems.filter(task => task.user === userInfo._id).map((item) => (
                                 <div className='boder'>
-                                    <div className='grid-3'>
+                                    <div className='grid-5'>
                                         <img className='img-cart' src={item.image} alt="" />
                                         <div>{item.name}</div>
                                         <div>{item.quantity}</div>
+                                        <div>{item.customerSize}</div>
+                                        <div className="colour mt-1" style={{ background: item.customerColor }}> </div>
                                     </div>
 
                                 </div>

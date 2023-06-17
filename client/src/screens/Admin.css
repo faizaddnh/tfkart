@@ -19,3 +19,10 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
 }
+.grid-5{
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+}
+.mt-1{
+    margin-top: 1.5rem;
+}
