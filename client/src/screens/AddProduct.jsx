@@ -188,6 +188,7 @@ function AddProduct(props) {
                             <option >Fashion</option>
                             <option >Parda</option>
                             <option >Foot-wear</option>
+                            <option >Olive-Store</option>
                             <option >Other</option>
                         </select>
                         <br /><br />

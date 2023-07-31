@@ -31,6 +31,7 @@ import CategoryFoot from './categories/CategoryFoot';
 import CategoryStationary from './categories/CategoryStationary';
 import CategoryBag from './categories/CategoryBag';
 import CategoryPerfume from './categories/CategoryPerfume';
+import CategoryOlive from './categories/CategoryOlive';
 
 
 function App() {
@@ -69,6 +70,7 @@ function App() {
         <Route path="/categorystationary" element={ <CategoryStationary/> } />
         <Route path="/categorybag" element={ <CategoryBag/> } />
         <Route path="/categoryperfume" element={ <CategoryPerfume/> } />
+        <Route path="/categoryolive" element={ <CategoryOlive/> } />
         
       
       </Routes>
