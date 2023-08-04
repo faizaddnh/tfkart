@@ -50,12 +50,53 @@ function Home(props) {
 
             <section >
                 <div className='section-1'>
+                    <div className='heading-1'>OLIVIAN DISCOUNTS</div>
+                    <div className='grid-display-1 '>
+
+                        {product.filter(task => task.category === 'Olive-Store').slice(0, 12).map((item) => (
+                            <div className='prdct-display-1'>
+                                <Link className='link' to={'/product/category/' + item._id}>
+                                    <img className='img-prdct-1' src={item.image} alt="" />
+                                    <div className='name-2'>{item.name}</div>
+                                    <div className='price'> Just ₹{item.price}</div>
+                                </Link>
+
+                            </div>
+
+                        ))}
+                    </div>
+                </div>
+            </section>
+
+
+            <section >
+                <div className='section-2'>
+                    <div className='heading-1'>INDEPENDENCE OFFER</div>
+                    <div className='grid-display-1 '>
+
+                        {product.filter(task => task.category === 'Olive-Store').slice(14, 20).map((item) => (
+                            <div className='prdct-display-1'>
+                                <Link className='link' to={'/product/category/' + item._id}>
+                                    <img className='img-prdct-1' src={item.image} alt="" />
+                                    <div className='name-2'>{item.name}</div>
+                                    <div className='price'> Just ₹{item.price}</div>
+                                </Link>
+
+                            </div>
+
+                        ))}
+                    </div>
+                </div>
+            </section>
+
+            <section >
+                <div className='section-1'>
                     <div className='heading-1'>FASHION HUNGAMA</div>
                     <div className='grid-display-1 '>
 
                         {product.filter(task => task.category === 'Fashion').slice(0, 12).map((item) => (
                             <div className='prdct-display-1'>
-                               <Link className='link' to={'/product/category/' + item._id}>
+                                <Link className='link' to={'/product/category/' + item._id}>
                                     <img className='img-prdct-1' src={item.image} alt="" />
                                     <div className='name-2'>{item.name}</div>
                                     <div className='price'> Just ₹{item.price}</div>
