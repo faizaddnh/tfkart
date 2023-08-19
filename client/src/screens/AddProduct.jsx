@@ -189,6 +189,7 @@ function AddProduct(props) {
                             <option >Parda</option>
                             <option >Foot-wear</option>
                             <option >Olive-Store</option>
+                            <option >Party-Decoration</option>
                             <option >Other</option>
                         </select>
                         <br /><br />

@@ -3,13 +3,13 @@ import { Link, useNavigate } from 'react-router-dom';
 import './HomeCategory.css';
 
 function HomeCategory(props) {
-    
+
     return (
 
         <div >
             <section>
                 <div className='flex of'>
-                <Link  className='ml-3' to='/categoryolive'>
+                    <Link className='ml-3' to='/categoryolive'>
                         <div className='category-round'>
                             <img className='category-img' src="https://res.cloudinary.com/dlspkhndv/image/upload/v1671604920/Falah/IMG_20220819_182149_ld6dps.jpg" alt="" />
                         </div>
@@ -18,7 +18,16 @@ function HomeCategory(props) {
                         </div>
                     </Link>
 
-                    <Link  className='ml-3' to='/categoryfashion'>
+                    <Link className='ml-3' to='/categoryparty'>
+                        <div className='category-round'>
+                            <img className='category-img' src="https://cbvalueaddrealty.in/wp-content/uploads/2021/07/foil_ballon_decoration.jpg" alt="" />
+                        </div>
+                        <div>
+                            PARTY-DECORATE
+                        </div>
+                    </Link>
+
+                    <Link className='ml-3' to='/categoryfashion'>
                         <div className='category-round'>
                             <img className='category-img' src="http://www.thedaycollections.com/wp-content/uploads/2017/07/boy-kids-fashion.png" alt="" />
                         </div>

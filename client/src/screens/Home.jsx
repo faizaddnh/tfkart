@@ -71,10 +71,10 @@ function Home(props) {
 
             <section >
                 <div className='section-2'>
-                    <div className='heading-1'>INDEPENDENCE OFFER</div>
+                    <div className='heading-1'>DECORATION OFFER</div>
                     <div className='grid-display-1 '>
 
-                        {product.filter(task => task.category === 'Olive-Store').slice(14, 20).map((item) => (
+                        {product.filter(task => task.category === 'Party-Decoration').slice(0, 12).map((item) => (
                             <div className='prdct-display-1'>
                                 <Link className='link' to={'/product/category/' + item._id}>
                                     <img className='img-prdct-1' src={item.image} alt="" />
