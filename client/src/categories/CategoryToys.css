@@ -33,4 +33,22 @@
     .grid-ctgry{
         grid-template-columns: repeat(2 ,1fr);
     }
+
+    .grid-ctgry img{
+        width: 100%;
+        height: 13rem;
+        border-radius: .4rem .4rem 0 0;
+    }
+}
+
+@media only screen and (max-width: 400px){
+    .grid-ctgry{
+        grid-template-columns: repeat(2 ,1fr);
+    }
+
+    .grid-ctgry img{
+        width: 100%;
+        height: 13rem;
+        border-radius: .4rem .4rem 0 0;
+    }
 }
