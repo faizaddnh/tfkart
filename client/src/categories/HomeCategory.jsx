@@ -9,6 +9,15 @@ function HomeCategory(props) {
         <div >
             <section>
                 <div className='flex of'>
+                    <Link className='ml-3' to='/categorypardha'>
+                        <div className='category-round'>
+                            <img className='category-img' src="https://www.gulfislamicstore.com/image/cache/catalog/KIMONO%20ABAYA/24-800x1100.jpg" />
+                        </div>
+                        <div>
+                            LIBHAS-PARDHA
+                        </div>
+                    </Link>
+
                     <Link className='ml-3' to='/categoryolive'>
                         <div className='category-round'>
                             <img className='category-img' src="https://res.cloudinary.com/dlspkhndv/image/upload/v1671604920/Falah/IMG_20220819_182149_ld6dps.jpg" alt="" />

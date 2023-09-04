@@ -33,6 +33,7 @@ import CategoryBag from './categories/CategoryBag';
 import CategoryPerfume from './categories/CategoryPerfume';
 import CategoryOlive from './categories/CategoryOlive';
 import CategoryParty from './categories/CategoryParty';
+import CategoryPardha from './categories/CategoryPardha';
 
 
 function App() {
@@ -73,6 +74,7 @@ function App() {
         <Route path="/categoryperfume" element={ <CategoryPerfume/> } />
         <Route path="/categoryolive" element={ <CategoryOlive/> } />
         <Route path="/categoryparty" element={ <CategoryParty/> } />
+        <Route path="/categorypardha" element={ <CategoryPardha/> } />
         
       
       </Routes>

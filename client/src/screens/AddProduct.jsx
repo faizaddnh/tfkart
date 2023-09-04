@@ -176,6 +176,7 @@ function AddProduct(props) {
 
                         <select name="category" placeholder='Category' value={category} onChange={(e) => setCategory(e.target.value)} required >
                             <option value="">Select a category......</option>
+                            <option >Pardha</option>
                             <option >school-items</option>
                             <option >Perfume</option>
                             <option >Soap</option>
@@ -186,7 +187,6 @@ function AddProduct(props) {
                             <option >Bag</option>
                             <option >umbrella</option>
                             <option >Fashion</option>
-                            <option >Parda</option>
                             <option >Foot-wear</option>
                             <option >Olive-Store</option>
                             <option >Party-Decoration</option>

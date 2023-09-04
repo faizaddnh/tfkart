@@ -90,6 +90,49 @@ function Home(props) {
             </section>
 
             <section >
+                <div>
+                    <div className='heading-4'>HOT DEALS FOR YOU</div>
+                    <div className='grid-display-2 '>
+
+                        {product.filter(task => task.category === 'Pardha').slice(0, 13).map((item) => (
+                            <div className='prdct-display-4'>
+                                <Link className='link' to={'/product/category/' + item._id}>
+                                    <img className='img-prdct-2' src={item.image} alt="" />
+                                    <div className='name-2'>{item.name}</div>
+                                    <div className='price-4'> Starting from ₹{item.price}</div>
+                                </Link>
+
+                            </div>
+
+                        ))}
+                    </div>
+                </div>
+            </section>
+
+
+            <section>
+                <div className='section-3'>
+                    <div className='heading-3'>UNBEATABLE DEALS</div>
+                    <div className='section'>
+                        <div className='grid-display-1 '>
+                            {product.filter(task => task.category === 'Toys').slice(0, 18).map((item) => (
+                                <div className='prdct-display-3'>
+                                    <Link className='link' to={'/product/category/' + item._id}>
+                                        <img className='img-prdct-1' src={item.image} alt="" />
+                                        <div className='name-2'>{item.name}</div>
+                                        <div className='price'> Price: ₹{item.price}</div>
+                                    </Link>
+
+                                </div>
+
+                            ))}
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+            <section >
                 <div className='section-1'>
                     <div className='heading-1'>FASHION HUNGAMA</div>
                     <div className='grid-display-1 '>
