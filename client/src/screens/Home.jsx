@@ -116,7 +116,7 @@ function Home(props) {
                     <div className='section'>
                         <div className='grid-display-1 '>
                             {product.filter(task => task.category === 'Toys').slice(0, 18).map((item) => (
-                                <div className='prdct-display-3'>
+                                <div className='prdct-display-1'>
                                     <Link className='link' to={'/product/category/' + item._id}>
                                         <img className='img-prdct-1' src={item.image} alt="" />
                                         <div className='name-2'>{item.name}</div>
