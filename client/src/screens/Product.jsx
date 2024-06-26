@@ -70,7 +70,7 @@ function Product(props) {
                 console.log(error)
             })
     }, []);
-
+ 
 
     //review push
 

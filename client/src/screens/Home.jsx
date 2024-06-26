@@ -31,7 +31,7 @@ function Home(props) {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const result = await axios.get('/api/product');
+                const result = await axios.get('https://gulfkart.azurewebsites.net/api/product');
                 setProduct(result.data);
             } catch (err) {
                 console.log(err.data);
