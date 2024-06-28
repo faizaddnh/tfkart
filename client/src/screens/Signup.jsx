@@ -31,7 +31,7 @@ function Signup(props) {
                         onChange={(e) => setName(e.target.value)} required /> <br /><br />
 
                     <input type="text"
-                        placeholder='Email'
+                        placeholder='Mobile Number'
                         value={email}
                         onChange={(e) => setEmail(e.target.value)} required /> <br /><br />
 

@@ -46,8 +46,8 @@ function Header(props) {
     return (
         <header className="head">
             <div className="header">
-                <img className="logo" src="https://image.shutterstock.com/image-vector/tf-letter-logo-circle-gold-600w-698190973.jpg" alt="" />
-                <div className='tfkart'>TFKart</div>
+                <img className="logo" src="https://res.cloudinary.com/dlspkhndv/image/upload/v1719584558/gulf-kart/gulf-kart_logo_r2szpb.jpg" alt="" />
+                <div className='tfkart'>GULFKart</div>
                 <FaBars id="menu-btn" onClick={navActive} />
                 <FaSearch onClick={goToSearchScreen} className='fa-search' />
                 <nav className={style} data-aos="fade-right" data-aos-delay="600">

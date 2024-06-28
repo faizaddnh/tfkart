@@ -22,6 +22,7 @@ const productSchema = new schema(
         brand: { type: String },
         description: { type: String },
         price: { type: Number },
+        discount: { type: Number },
         image: { type: String },
         images: [String],
         countInStock: { type: Number },

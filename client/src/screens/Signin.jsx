@@ -36,7 +36,7 @@ function Signin(props) {
             <section className='address-center'>
                 <form className='address-form' onSubmit={doSignin}>
                     <input type="text"
-                        placeholder='Email'
+                        placeholder='Mobile Number'
                         value={email}
                         onChange={(e) => setEmail(e.target.value)} required /> <br /> <br />
 

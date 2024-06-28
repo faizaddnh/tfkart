@@ -135,10 +135,17 @@ section{
     margin-bottom: .5rem;
 }
 .price{
+    font-size: .8rem;
+    color: rgb(127, 128, 129);
+    
+    
+}
+.discount{
     font-size: 1.1rem;
     color: rgb(6, 131, 233);
     font-weight: 600;
 }
+
 .link{
     text-decoration: none;
     color: white;

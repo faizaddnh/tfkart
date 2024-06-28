@@ -31,7 +31,7 @@ function Home(props) {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const result = await axios.get('https://gulfkart.azurewebsites.net/api/product');
+                const result = await axios.get('/api/product');
                 setProduct(result.data);
             } catch (err) {
                 console.log(err.data);
@@ -58,7 +58,13 @@ function Home(props) {
                                 <Link className='link' to={'/product/category/' + item._id}>
                                     <img className='img-prdct-1' src={item.image} alt="" />
                                     <div className='name-2'>{item.name}</div>
-                                    <div className='price'> Just ₹{item.price}</div>
+                                    <div className='discount'>  ₹{item.price - item.price * item.discount / 100}</div>
+                                        <div className='price'>
+                                            <span style={{ textDecoration: 'line-through' }}>
+                                                ₹{item.price}
+                                            </span>{' '}
+                                            {item.discount}% off
+                                        </div>
                                 </Link>
 
                             </div>
@@ -79,7 +85,7 @@ function Home(props) {
                                 <Link className='link' to={'/product/category/' + item._id}>
                                     <img className='img-prdct-1' src={item.image} alt="" />
                                     <div className='name-2'>{item.name}</div>
-                                    <div className='price'> Just ₹{item.price}</div>
+                                    <div className='discount'>  Just ₹{item.price - item.price * item.discount / 100}</div>
                                 </Link>
 
                             </div>
@@ -99,7 +105,13 @@ function Home(props) {
                                 <Link className='link' to={'/product/category/' + item._id}>
                                     <img className='img-prdct-2' src={item.image} alt="" />
                                     <div className='name-2'>{item.name}</div>
-                                    <div className='price-4'> Starting from ₹{item.price}</div>
+                                    <div className='discount'>  ₹{item.price - item.price * item.discount / 100}</div>
+                                        <div className='price'>
+                                            <span style={{ textDecoration: 'line-through' }}>
+                                                ₹{item.price}
+                                            </span>{' '}
+                                            {item.discount}% off
+                                        </div>
                                 </Link>
 
                             </div>
@@ -120,7 +132,13 @@ function Home(props) {
                                     <Link className='link' to={'/product/category/' + item._id}>
                                         <img className='img-prdct-1' src={item.image} alt="" />
                                         <div className='name-2'>{item.name}</div>
-                                        <div className='price'> Price: ₹{item.price}</div>
+                                        <div className='discount'>  ₹{item.price - item.price * item.discount / 100}</div>
+                                        <div className='price'>
+                                            <span style={{ textDecoration: 'line-through' }}>
+                                                ₹{item.price}
+                                            </span>{' '}
+                                            {item.discount}% off
+                                        </div>
                                     </Link>
 
                                 </div>
@@ -142,7 +160,7 @@ function Home(props) {
                                 <Link className='link' to={'/product/category/' + item._id}>
                                     <img className='img-prdct-1' src={item.image} alt="" />
                                     <div className='name-2'>{item.name}</div>
-                                    <div className='price'> Just ₹{item.price}</div>
+                                    <div className='discount'>  Just ₹{item.price - item.price * item.discount / 100}</div>
                                 </Link>
 
                             </div>
@@ -164,7 +182,13 @@ function Home(props) {
                                 <Link className='link' to={'/product/category/' + item._id}>
                                     <img className='img-prdct-2' src={item.image} alt="" />
                                     <div className='name-2'>{item.name}</div>
-                                    <div className='price'>  ₹{item.price}</div>
+                                    <div className='discount'>  ₹{item.price - item.price * item.discount / 100}</div>
+                                        <div className='price'>
+                                            <span style={{ textDecoration: 'line-through' }}>
+                                                ₹{item.price}
+                                            </span>{' '}
+                                            {item.discount}% off
+                                        </div>
                                 </Link>
 
                             </div>
@@ -187,7 +211,7 @@ function Home(props) {
                                 <Link className='link' to={'/product/category/' + item._id}>
                                     <img className='img-prdct-1' src={item.image} alt="" />
                                     <div className='name-2'>{item.name}</div>
-                                    <div className='price'> Price: ₹{item.price}</div>
+                                    <div className='discount'> Price ₹{item.price - item.price * item.discount / 100}</div>
                                 </Link>
 
                             </div>
@@ -207,7 +231,7 @@ function Home(props) {
                                 <Link className='link' to={'/product/category/' + item._id}>
                                     <img className='img-prdct-1' src={item.image} alt="" />
                                     <div className='name-2'>{item.name}</div>
-                                    <div className='price'> Just ₹{item.price}</div>
+                                    <div className='discount'>  Just ₹{item.price - item.price * item.discount / 100}</div>
                                 </Link>
 
                             </div>
@@ -227,7 +251,13 @@ function Home(props) {
                                 <Link className='link' to={'/product/category/' + item._id}>
                                     <img className='img-prdct-2' src={item.image} alt="" />
                                     <div className='name-2'>{item.name}</div>
-                                    <div className='price-4'> Starting from ₹{item.price}</div>
+                                    <div className='discount'>  ₹{item.price - item.price * item.discount / 100}</div>
+                                        <div className='price'>
+                                            <span style={{ textDecoration: 'line-through' }}>
+                                                ₹{item.price}
+                                            </span>{' '}
+                                            {item.discount}% off
+                                        </div>
                                 </Link>
 
                             </div>
@@ -247,7 +277,7 @@ function Home(props) {
                                     <Link className='link' to={'/product/category/' + item._id}>
                                         <img className='img-prdct-1' src={item.image} alt="" />
                                         <div className='name-2'>{item.name}</div>
-                                        <div className='price'> Price: ₹{item.price}</div>
+                                        <div className='discount'> Price Just ₹{item.price - item.price * item.discount / 100}</div>
                                     </Link>
 
                                 </div>

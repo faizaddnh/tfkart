@@ -18,8 +18,8 @@ function HomeNext(props) {
     let params = useParams();
     const productId = params.id;
 
-    let category = data.map((fai)=>fai.category)
-    
+    let category = data.map((fai) => fai.category)
+
 
     const addToCart = async (id) => {
         const existItem = cart.cartItems.find((x) => x._id === product._id);
@@ -76,8 +76,16 @@ function HomeNext(props) {
 
                                     <img className='ctgry-prdct' src={item.image} alt="" />
                                     <div className='name-3'>{item.name}</div>
-                                    <div className= 'name-2'>{item.brand}</div>
-                                    <div className='price'> Price: ₹ {item.price}</div>
+                                    <div className='name-2'>{item.brand}</div>
+                                    <div className='discount'>  ₹{item.price - item.price * item.discount / 100}</div>
+                                    <div className='price'>
+                                        <span style={{ textDecoration: 'line-through' }}>
+                                            ₹{item.price}
+                                        </span>{' '}
+                                        {item.discount}% off
+                                    </div>
+
+
                                     <Rating className='rating' rating={item.rating} numReviews={item.numReviews} />
                                 </Link>
                                 <button onClick={() => { addToCart(item._id) }} className='button' >ADD-TO-CART</button>

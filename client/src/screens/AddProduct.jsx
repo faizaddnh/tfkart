@@ -13,6 +13,7 @@ function AddProduct(props) {
     const [image, setImage] = useState("");
     const [images, setImages] = useState([]);
     const [price, setPrice] = useState("");
+    const [discount, setDiscount] = useState("");
     const [description, setDescription] = useState("");
     const [countInStock, setCountInStock] = useState("");
     const [category, setCategory] = useState("");
@@ -81,7 +82,7 @@ function AddProduct(props) {
         e.preventDefault();
         try {
             const prdct = await axios.post('/api/product',
-                { name, brand, image, images, price, description, countInStock, category, returnPolicy, colors, sizeList, pack, style, weight, length, ideal, sleeve, type },
+                { name, brand, image, images, price, discount, description, countInStock, category, returnPolicy, colors, sizeList, pack, style, weight, length, ideal, sleeve, type },
                 {
                     headers: {
                         authorization: `Bearer ${userInfo.token}`,
@@ -168,6 +169,11 @@ function AddProduct(props) {
                             placeholder='Price'
                             value={price}
                             onChange={(e) => setPrice(e.target.value)} required /> <br /> <br />
+
+                        <input type="number"
+                            placeholder='Discount %'
+                            value={discount}
+                            onChange={(e) => setDiscount(e.target.value)} required /> <br /> <br />
 
                         <input type="text"
                             placeholder='Description'
