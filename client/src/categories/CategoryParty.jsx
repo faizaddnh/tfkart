@@ -55,12 +55,14 @@ function CategoryParty(props) {
                                     <img className='ctgry-prdct' src={item.image} alt="" />
                                     <div className='name-3'>{item.name}</div>
                                     <div className='light-color'>{item.brand}</div>
-                                    <div className='discount'>  ₹{item.price - item.price * item.discount / 100}</div>
+                                    <div className='discount'>  ₹{item.price}</div>
                                     <div className='price'>
                                         <span style={{ textDecoration: 'line-through' }}>
-                                            ₹{item.price}
+                                            ₹{item.discount}
                                         </span>{' '}
-                                        {item.discount}% off
+                                        <span style={{ color: 'green' }}>
+                                        {Math.round(((item.discount-item.price)*100)/item.discount)}% off
+                                        </span>
                                     </div>
                                     <Rating className='rating' rating={item.rating} numReviews={item.numReviews} />
                                 </Link>

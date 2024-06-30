@@ -34,6 +34,7 @@ import CategoryPerfume from './categories/CategoryPerfume';
 import CategoryOlive from './categories/CategoryOlive';
 import CategoryParty from './categories/CategoryParty';
 import CategoryPardha from './categories/CategoryPardha';
+import CategoryFancy from './categories/CategoryFancy';
 
 
 function App() {
@@ -41,9 +42,7 @@ function App() {
     <BrowserRouter>
 
       <Header />
-
-
-
+      
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/product/category/:id" element={ <HomeNext/> } />
@@ -75,6 +74,7 @@ function App() {
         <Route path="/categoryolive" element={ <CategoryOlive/> } />
         <Route path="/categoryparty" element={ <CategoryParty/> } />
         <Route path="/categorypardha" element={ <CategoryPardha/> } />
+        <Route path="/categoryfancy" element={ <CategoryFancy/> } />
         
       
       </Routes>

@@ -6,8 +6,8 @@ import '../screens/Home.css';
 import './CategoryToys.css'
 import Rating from '../components/Rating';
 
-function CategoryElectronics(props) {
-    
+
+function CategoryFancy(props) {
     const [product, setProduct] = useState([]);
 
     const { state, dispatch: ctxDispatch } = useContext(Store);
@@ -49,7 +49,7 @@ function CategoryElectronics(props) {
             <section id='ctgry-main'>
                 <div >
                     <div className='grid-ctgry'>
-                        {product.filter(task => task.category === 'Electronics').map((item) => (
+                        {product.filter(task => task.category === 'Fancy').map((item) => (
                             <div className='ctgry-display'>
                                 <Link className='link' to={'/product/' + item._id}>
 
@@ -77,4 +77,4 @@ function CategoryElectronics(props) {
     );
 }
 
-export default CategoryElectronics;
+export default CategoryFancy;

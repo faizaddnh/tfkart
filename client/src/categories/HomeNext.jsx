@@ -77,12 +77,14 @@ function HomeNext(props) {
                                     <img className='ctgry-prdct' src={item.image} alt="" />
                                     <div className='name-3'>{item.name}</div>
                                     <div className='name-2'>{item.brand}</div>
-                                    <div className='discount'>  ₹{item.price - item.price * item.discount / 100}</div>
+                                    <div className='discount'>  ₹{item.price}</div>
                                     <div className='price'>
                                         <span style={{ textDecoration: 'line-through' }}>
-                                            ₹{item.price}
+                                            ₹{item.discount}
                                         </span>{' '}
-                                        {item.discount}% off
+                                        <span style={{ color: 'green' }}>
+                                            {Math.round(((item.discount - item.price) * 100) / item.discount)}% off
+                                        </span>
                                     </div>
 
 

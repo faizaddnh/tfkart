@@ -50,21 +50,23 @@ function Home(props) {
 
             <section >
                 <div className='section-1'>
-                    <div className='heading-1'>OLIVIAN DISCOUNTS</div>
+                    <div className='heading-1'>KIDDIEEES DISCOUNTS</div>
                     <div className='grid-display-1 '>
 
-                        {product.filter(task => task.category === 'Olive-Store').slice(0, 12).map((item) => (
+                        {product.filter(task => task.category === 'Toys').slice(0, 12).map((item) => (
                             <div className='prdct-display-1'>
                                 <Link className='link' to={'/product/category/' + item._id}>
                                     <img className='img-prdct-1' src={item.image} alt="" />
                                     <div className='name-2'>{item.name}</div>
-                                    <div className='discount'>  ₹{item.price - item.price * item.discount / 100}</div>
-                                        <div className='price'>
-                                            <span style={{ textDecoration: 'line-through' }}>
-                                                ₹{item.price}
-                                            </span>{' '}
-                                            {item.discount}% off
-                                        </div>
+                                    <div className='discount'>  ₹{item.price}</div>
+                                    <div className='price'>
+                                        <span style={{ textDecoration: 'line-through' }}>
+                                            ₹{item.discount}
+                                        </span>{' '}
+                                        <span style={{ color: 'green' }}>
+                                            {Math.round(((item.discount - item.price) * 100) / item.discount)}% off
+                                        </span>
+                                    </div>
                                 </Link>
 
                             </div>
@@ -73,6 +75,112 @@ function Home(props) {
                     </div>
                 </div>
             </section>
+
+
+            <section >
+                <div>
+                    <div className='heading-4'>HOT DEALS FOR YOU</div>
+                    <div className='grid-display-2 '>
+
+                        {product.filter(task => task.category === 'Bag').slice(0, 12).map((item) => (
+                            <div className='prdct-display-4'>
+                                <Link className='link' to={'/product/category/' + item._id}>
+                                    <img className='img-prdct-2' src={item.image} alt="" />
+                                    <div className='name-2'>{item.name}</div>
+                                    <div className='discount'>  ₹{item.price}</div>
+                                    <div className='price'>
+                                        <span style={{ textDecoration: 'line-through' }}>
+                                            ₹{item.discount}
+                                        </span>{' '}
+                                        <span style={{ color: 'green' }}>
+                                            {Math.round(((item.discount - item.price) * 100) / item.discount)}% off
+                                        </span>
+                                    </div>
+                                </Link>
+
+                            </div>
+
+                        ))}
+                    </div>
+                </div>
+            </section>
+
+            <section >
+                <div className='section'>
+                    <div className='heading-2'>Discounts for You</div>
+                    <div className='grid-display-2 '>
+
+                        {product.filter(task => task.category === 'Foot-wear').slice(0, 12).map((item) => (
+                            <div className='prdct-display-2'>
+                                <Link className='link' to={'/product/category/' + item._id}>
+                                    <img className='img-prdct-2' src={item.image} alt="" />
+                                    <div className='name-2'>{item.name}</div>
+                                    <div className='discount'>  ₹{item.price}</div>
+                                    <div className='price'>
+                                        <span style={{ textDecoration: 'line-through' }}>
+                                            ₹{item.discount}
+                                        </span>{' '}
+                                        <span style={{ color: 'green' }}>
+                                            {Math.round(((item.discount - item.price) * 100) / item.discount)}% off
+                                        </span>
+                                    </div>
+                                </Link>
+
+                            </div>
+
+                        ))}
+                    </div>
+                </div>
+            </section>
+
+            <section >
+                <div>
+                    <div className='heading-4'>Discounts for You</div>
+                    <div className='grid-display-2 '>
+
+                        {product.filter(task => task.category === 'Perfume').slice(5, 17).map((item) => (
+                            <div className='prdct-display-4'>
+                                <Link className='link' to={'/product/category/' + item._id}>
+                                    <img className='img-prdct-2' src={item.image} alt="" />
+                                    <div className='name-2'>{item.name}</div>
+                                    <div className='discount'>  ₹{item.price}</div>
+                                    <div className='price'>
+                                        <span style={{ textDecoration: 'line-through' }}>
+                                            ₹{item.discount}
+                                        </span>{' '}
+                                        <span style={{ color: 'green' }}>
+                                            {Math.round(((item.discount - item.price) * 100) / item.discount)}% off
+                                        </span>
+                                    </div>
+                                </Link>
+
+                            </div>
+
+                        ))}
+                    </div>
+                </div>
+            </section>
+
+            <section >
+                <div className='section-2'>
+                    <div className='heading-1'>BUDGET BUYS</div>
+                    <div className='grid-display-1 '>
+
+                        {product.filter(task => task.category === 'Olive-Store').slice(0, 18).map((item) => (
+                            <div className='prdct-display-1'>
+                                <Link className='link' to={'/product/category/' + item._id}>
+                                    <img className='img-prdct-1' src={item.image} alt="" />
+                                    <div className='name-2'>{item.name}</div>
+                                    <div className='discount'>  Just ₹{item.price}</div>
+                                </Link>
+
+                            </div>
+
+                        ))}
+                    </div>
+                </div>
+            </section>
+
 
 
             <section >
@@ -85,7 +193,7 @@ function Home(props) {
                                 <Link className='link' to={'/product/category/' + item._id}>
                                     <img className='img-prdct-1' src={item.image} alt="" />
                                     <div className='name-2'>{item.name}</div>
-                                    <div className='discount'>  Just ₹{item.price - item.price * item.discount / 100}</div>
+                                    <div className='discount'>  Just ₹{item.price}</div>
                                 </Link>
 
                             </div>
@@ -94,50 +202,25 @@ function Home(props) {
                     </div>
                 </div>
             </section>
-
-            <section >
-                <div>
-                    <div className='heading-4'>HOT DEALS FOR YOU</div>
-                    <div className='grid-display-2 '>
-
-                        {product.filter(task => task.category === 'Pardha').slice(0, 13).map((item) => (
-                            <div className='prdct-display-4'>
-                                <Link className='link' to={'/product/category/' + item._id}>
-                                    <img className='img-prdct-2' src={item.image} alt="" />
-                                    <div className='name-2'>{item.name}</div>
-                                    <div className='discount'>  ₹{item.price - item.price * item.discount / 100}</div>
-                                        <div className='price'>
-                                            <span style={{ textDecoration: 'line-through' }}>
-                                                ₹{item.price}
-                                            </span>{' '}
-                                            {item.discount}% off
-                                        </div>
-                                </Link>
-
-                            </div>
-
-                        ))}
-                    </div>
-                </div>
-            </section>
-
 
             <section>
                 <div className='section-3'>
                     <div className='heading-3'>UNBEATABLE DEALS</div>
                     <div className='section'>
                         <div className='grid-display-1 '>
-                            {product.filter(task => task.category === 'Toys').slice(0, 18).map((item) => (
+                            {product.filter(task => task.category === 'Fancy').slice(0, 18).map((item) => (
                                 <div className='prdct-display-1'>
                                     <Link className='link' to={'/product/category/' + item._id}>
                                         <img className='img-prdct-1' src={item.image} alt="" />
                                         <div className='name-2'>{item.name}</div>
-                                        <div className='discount'>  ₹{item.price - item.price * item.discount / 100}</div>
+                                        <div className='discount'>  ₹{item.price}</div>
                                         <div className='price'>
                                             <span style={{ textDecoration: 'line-through' }}>
-                                                ₹{item.price}
+                                                ₹{item.discount}
                                             </span>{' '}
-                                            {item.discount}% off
+                                            <span style={{ color: 'green' }}>
+                                            {Math.round(((item.discount - item.price) * 100) / item.discount)}% off
+                                        </span>
                                         </div>
                                     </Link>
 
@@ -160,7 +243,7 @@ function Home(props) {
                                 <Link className='link' to={'/product/category/' + item._id}>
                                     <img className='img-prdct-1' src={item.image} alt="" />
                                     <div className='name-2'>{item.name}</div>
-                                    <div className='discount'>  Just ₹{item.price - item.price * item.discount / 100}</div>
+                                    <div className='discount'>  Just ₹{item.price}</div>
                                 </Link>
 
                             </div>
@@ -169,35 +252,6 @@ function Home(props) {
                     </div>
                 </div>
             </section>
-
-
-
-            <section >
-                <div className='section'>
-                    <div className='heading-2'>Discounts for You</div>
-                    <div className='grid-display-2 '>
-
-                        {product.filter(task => task.category === 'Foot-wear').slice(0, 12).map((item) => (
-                            <div className='prdct-display-2'>
-                                <Link className='link' to={'/product/category/' + item._id}>
-                                    <img className='img-prdct-2' src={item.image} alt="" />
-                                    <div className='name-2'>{item.name}</div>
-                                    <div className='discount'>  ₹{item.price - item.price * item.discount / 100}</div>
-                                        <div className='price'>
-                                            <span style={{ textDecoration: 'line-through' }}>
-                                                ₹{item.price}
-                                            </span>{' '}
-                                            {item.discount}% off
-                                        </div>
-                                </Link>
-
-                            </div>
-
-                        ))}
-                    </div>
-                </div>
-            </section>
-
 
             <section>
                 <div>
@@ -211,7 +265,7 @@ function Home(props) {
                                 <Link className='link' to={'/product/category/' + item._id}>
                                     <img className='img-prdct-1' src={item.image} alt="" />
                                     <div className='name-2'>{item.name}</div>
-                                    <div className='discount'> Price ₹{item.price - item.price * item.discount / 100}</div>
+                                    <div className='discount'> Price ₹{item.price}</div>
                                 </Link>
 
                             </div>
@@ -231,33 +285,7 @@ function Home(props) {
                                 <Link className='link' to={'/product/category/' + item._id}>
                                     <img className='img-prdct-1' src={item.image} alt="" />
                                     <div className='name-2'>{item.name}</div>
-                                    <div className='discount'>  Just ₹{item.price - item.price * item.discount / 100}</div>
-                                </Link>
-
-                            </div>
-
-                        ))}
-                    </div>
-                </div>
-            </section>
-
-            <section >
-                <div>
-                    <div className='heading-4'>Discounts for You</div>
-                    <div className='grid-display-2 '>
-
-                        {product.filter(task => task.category === 'Perfume').slice(5, 17).map((item) => (
-                            <div className='prdct-display-4'>
-                                <Link className='link' to={'/product/category/' + item._id}>
-                                    <img className='img-prdct-2' src={item.image} alt="" />
-                                    <div className='name-2'>{item.name}</div>
-                                    <div className='discount'>  ₹{item.price - item.price * item.discount / 100}</div>
-                                        <div className='price'>
-                                            <span style={{ textDecoration: 'line-through' }}>
-                                                ₹{item.price}
-                                            </span>{' '}
-                                            {item.discount}% off
-                                        </div>
+                                    <div className='discount'>  Just ₹{item.price}</div>
                                 </Link>
 
                             </div>
@@ -277,7 +305,7 @@ function Home(props) {
                                     <Link className='link' to={'/product/category/' + item._id}>
                                         <img className='img-prdct-1' src={item.image} alt="" />
                                         <div className='name-2'>{item.name}</div>
-                                        <div className='discount'> Price Just ₹{item.price - item.price * item.discount / 100}</div>
+                                        <div className='discount'> Price Just ₹{item.price}</div>
                                     </Link>
 
                                 </div>

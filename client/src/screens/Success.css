@@ -17,3 +17,8 @@
       -webkit-animation-iteration-count: infinite;  
       -webkit-animation-duration: 1s; 
   }   
+
+  .success-logo{
+    height: 10rem;
+    width: 10rem;
+  }

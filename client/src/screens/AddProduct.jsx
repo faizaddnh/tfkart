@@ -166,12 +166,12 @@ function AddProduct(props) {
                         </div>
 
                         <input type="number"
-                            placeholder='Price'
+                            placeholder='Price You Want'
                             value={price}
                             onChange={(e) => setPrice(e.target.value)} required /> <br /> <br />
 
                         <input type="number"
-                            placeholder='Discount %'
+                            placeholder='MRP Of Product'
                             value={discount}
                             onChange={(e) => setDiscount(e.target.value)} required /> <br /> <br />
 
@@ -192,6 +192,7 @@ function AddProduct(props) {
                             <option >Stationary</option>
                             <option >Bag</option>
                             <option >umbrella</option>
+                            <option >Fancy</option>
                             <option >Fashion</option>
                             <option >Foot-wear</option>
                             <option >Olive-Store</option>

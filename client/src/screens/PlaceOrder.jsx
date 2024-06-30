@@ -50,8 +50,8 @@ function PlaceOrder(props) {
     cart.cartItems.reduce((a, c) => a + c.quantity * c.price, 0)
   );
   cart.shippingPrice = cart.itemsPrice > 500 ? round2(0) : round2(30);
-  cart.taxPrice = round2(0.18 * cart.itemsPrice);
-  cart.totalPrice = cart.itemsPrice + cart.shippingPrice + cart.taxPrice;
+  cart.taxPrice = round2(0.12 * cart.itemsPrice);
+  cart.noTaxPrice = cart.itemsPrice-cart.taxPrice;
 
 
 
@@ -63,10 +63,10 @@ function PlaceOrder(props) {
         {
           orderItems: cart.cartItems,
           shippingAddress: cart.shippingAddress,
-          itemsPrice: cart.itemsPrice,
-          shippingPrice: cart.shippingPrice,
+          itemsPrice: cart.noTaxPrice,
+          shippingPrice: 0,
           taxPrice: cart.taxPrice,
-          totalPrice: cart.totalPrice,
+          totalPrice: cart.itemsPrice,
 
         },
         {
@@ -125,11 +125,11 @@ function PlaceOrder(props) {
             <h3>order summary</h3>
             <div className='grid'>
               <p>Item Price :</p>
-              <p>₹ {cart.itemsPrice}</p>
+              <p>₹ {cart.itemsPrice - cart.taxPrice}</p>
             </div>
             <div className='grid'>
               <p>Shipping Price :</p>
-              <p>₹ {cart.shippingPrice}</p>
+              <p>₹ free</p>
             </div>
             <div className='grid'>
               <p>Tax Price:</p>
@@ -137,10 +137,10 @@ function PlaceOrder(props) {
             </div>
             <div className='grid'>
               <p>Total Price :</p>
-              <p>₹ {cart.totalPrice}</p>
+              <p>₹ {cart.itemsPrice}</p>
             </div>
             <button className="long-but" onClick={placeOrderHandler} >
-              Pay (Cash On Delivery): ₹ {cart.totalPrice}
+              Pay (Cash On Delivery): ₹ {cart.itemsPrice}
             </button>
 
           </div>

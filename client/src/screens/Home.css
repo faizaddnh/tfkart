@@ -206,6 +206,9 @@ section{
     html{
         font-size: 90%;
     }
+    body{
+        margin-top: 3.7rem;
+    }
     
     .grid-display-1{
         grid-template-columns:repeat(3,1fr);
@@ -240,6 +243,10 @@ section{
     html{
         font-size: 80%;
     }
+    body{
+        margin-top: 3.7rem;
+    }
+    
     
     .grid-display-1{
         grid-template-columns:repeat(3,1fr);
