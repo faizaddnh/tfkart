@@ -134,14 +134,14 @@ function Home(props) {
             </section>
 
             <section >
-                <div>
-                    <div className='heading-4'>Discounts for You</div>
-                    <div className='grid-display-2 '>
+                <div className='section-1'>
+                    <div className='heading-1'>BACK TO SCHOOL DEALS</div>
+                    <div className='grid-display-1 '>
 
-                        {product.filter(task => task.category === 'Perfume').slice(5, 17).map((item) => (
-                            <div className='prdct-display-4'>
+                        {product.filter(task => task.category === 'school-items').slice(0, 12).map((item) => (
+                            <div className='prdct-display-1'>
                                 <Link className='link' to={'/product/category/' + item._id}>
-                                    <img className='img-prdct-2' src={item.image} alt="" />
+                                    <img className='img-prdct-1' src={item.image} alt="" />
                                     <div className='name-2'>{item.name}</div>
                                     <div className='discount'>  ₹{item.price}</div>
                                     <div className='price'>
@@ -181,14 +181,12 @@ function Home(props) {
                 </div>
             </section>
 
-
-
             <section >
-                <div className='section-2'>
-                    <div className='heading-1'>DECORATION OFFER</div>
+                <div className='section-1'>
+                    <div className='heading-1'>SMELL 'N' SMILE DEALS</div>
                     <div className='grid-display-1 '>
 
-                        {product.filter(task => task.category === 'Party-Decoration').slice(0, 12).map((item) => (
+                        {product.filter(task => task.category === 'Perfume').slice(0, 12).map((item) => (
                             <div className='prdct-display-1'>
                                 <Link className='link' to={'/product/category/' + item._id}>
                                     <img className='img-prdct-1' src={item.image} alt="" />
@@ -202,6 +200,7 @@ function Home(props) {
                     </div>
                 </div>
             </section>
+
 
             <section>
                 <div className='section-3'>
@@ -233,26 +232,6 @@ function Home(props) {
             </section>
 
 
-            <section >
-                <div className='section-1'>
-                    <div className='heading-1'>FASHION HUNGAMA</div>
-                    <div className='grid-display-1 '>
-
-                        {product.filter(task => task.category === 'Fashion').slice(0, 12).map((item) => (
-                            <div className='prdct-display-1'>
-                                <Link className='link' to={'/product/category/' + item._id}>
-                                    <img className='img-prdct-1' src={item.image} alt="" />
-                                    <div className='name-2'>{item.name}</div>
-                                    <div className='discount'>  Just ₹{item.price}</div>
-                                </Link>
-
-                            </div>
-
-                        ))}
-                    </div>
-                </div>
-            </section>
-
             <section>
                 <div>
                     <div className='heading-3'>ELECTRONICS DEALS</div>
@@ -277,10 +256,10 @@ function Home(props) {
 
             <section >
                 <div className='section-2'>
-                    <div className='heading-1'>BUDGET BUYS</div>
+                    <div className='heading-1'>CLEANIEE DEAL</div>
                     <div className='grid-display-1 '>
 
-                        {product.filter(task => task.category === 'Beauty').slice(1, 19).map((item) => (
+                        {product.filter(task => task.category === 'Soap').slice(0, 18).map((item) => (
                             <div className='prdct-display-1'>
                                 <Link className='link' to={'/product/category/' + item._id}>
                                     <img className='img-prdct-1' src={item.image} alt="" />
@@ -315,6 +294,67 @@ function Home(props) {
                     </div>
                 </div>
             </section>
+
+            <section >
+                <div className='section-2'>
+                    <div className='heading-1'>BUDGET BUYS</div>
+                    <div className='grid-display-1 '>
+
+                        {product.filter(task => task.category === 'Beauty').slice(0, 18).map((item) => (
+                            <div className='prdct-display-1'>
+                                <Link className='link' to={'/product/category/' + item._id}>
+                                    <img className='img-prdct-1' src={item.image} alt="" />
+                                    <div className='name-2'>{item.name}</div>
+                                    <div className='discount'>  Just ₹{item.price}</div>
+                                </Link>
+
+                            </div>
+
+                        ))}
+                    </div>
+                </div>
+            </section>
+
+            <section >
+                <div className='section-2'>
+                    <div className='heading-1'>DECORATION OFFER</div>
+                    <div className='grid-display-1 '>
+
+                        {product.filter(task => task.category === 'Party-Decoration').slice(0, 12).map((item) => (
+                            <div className='prdct-display-1'>
+                                <Link className='link' to={'/product/category/' + item._id}>
+                                    <img className='img-prdct-1' src={item.image} alt="" />
+                                    <div className='name-2'>{item.name}</div>
+                                    <div className='discount'>  Just ₹{item.price}</div>
+                                </Link>
+
+                            </div>
+
+                        ))}
+                    </div>
+                </div>
+            </section>
+
+            <section >
+                <div className='section-1'>
+                    <div className='heading-1'>FASHION HUNGAMA</div>
+                    <div className='grid-display-1 '>
+
+                        {product.filter(task => task.category === 'Fashion').slice(0, 12).map((item) => (
+                            <div className='prdct-display-1'>
+                                <Link className='link' to={'/product/category/' + item._id}>
+                                    <img className='img-prdct-1' src={item.image} alt="" />
+                                    <div className='name-2'>{item.name}</div>
+                                    <div className='discount'>  Just ₹{item.price}</div>
+                                </Link>
+
+                            </div>
+
+                        ))}
+                    </div>
+                </div>
+            </section>
+
 
         </div>
     );
